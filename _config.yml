@@ -16,7 +16,7 @@ name: Shayaun Bashar
 headline: R&D Engineer 
 description: >- # dont remove this line. this will ignore all new lines until the next section	
 	3 years research expierence working on low power, wireless and battery-less sensors. Great hands on skills and ability to work with interdisciplanry teams. 
-	#Worked on sensor fabrication, calibration, and data analysis/testing. Designed rigid and flex PCBs in Altium. Simulated antennas and PCBs in Ansys HFSS. 
+	# Worked on sensor fabrication, calibration, and data analysis/testing. Designed rigid and flex PCBs in Altium. Simulated antennas and PCBs in Ansys HFSS. 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
 
