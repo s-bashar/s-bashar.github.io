@@ -29,8 +29,8 @@ resume-url: ./assets/resume/ShayaunBasharResume.pdf
 # Set up external links - this will show up as small icons next to your name.
 
 external-links:    # input only your own url slug. The icons with missing entries will not appear.
-  linkedin: https://www.linkedin.com/in/shayaun-bashar-055262161
-  github: https://github.com/s-bashar 
+  linkedin: shayaun-bashar-055262161
+  github: github.com/s-bashar 
   
 # Skills Section - Add the list of your Skills by categories/tools. The indentation for each level needs to be precise. 
 skills:
