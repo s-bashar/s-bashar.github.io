@@ -1,18 +1,14 @@
 ---
 layout: post
-title: Super Heavy Booster Catch (Demo Only)
-description:  (I have never been employed by / affiliated with SpaceX. This is for demo use only) 
-    Developing the Super Heavy booster catch project involves designing a robust launch tower with "chopstick" arms, advanced control systems for precise booster alignment, and integrating sophisticated software for real-time trajectory adjustments and structural engineering to handle immense forces.
+title: Force Sticker 
+description:  
+    We show that the force-information can be piggybacked over existing RFIDs, with no additional power and requirement of any interfacing electronics, by simply interfacing a force sensitive capacitor to the RFID. Hence, the designed force-stickers consist of a thin parallel-plate capacitor, smaller than a rice grain that deforms under applied force, and is interfaced in between the RFID squiggly antenna and the RFID IC. But, how does the force-information from the capacitor get communicated via the RFID IC, without requiring any more electronics and power? The secret sauce lies in the capacitor-design, choosing the correct polymer and correct dimensions! 
 skills: 
-  - Structural analysis
-  - Aerodynamic design
-  - Propulsion system integration
-  - Control Algorithem 
-  - Welding
-  - Metal forming
-  - Thermal simulation
+  - PCB Design
+  - Antenna/PCB Simulations Ansys HFSS
+  - Low-Power Systems 
 
-main-image: /project2.jpg
+main-image: /force-sticker-banner.PNG
 ---
 
 ---
