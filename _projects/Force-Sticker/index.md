@@ -8,7 +8,7 @@ skills:
   - Antenna/PCB Simulations Ansys HFSS
   - Low-Power Systems 
 
-main-image: /force-sticker-banner.png
+main-image: /force-sticker-banner_5.png
 ---
 
 ---
