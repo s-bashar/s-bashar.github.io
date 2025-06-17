@@ -16,7 +16,7 @@ main-image: /force-sticker-banner_8.png
 # Experiments with ForceStickers 
 
 ## Package Consistency checks with ForceStickers:
-{% include image-gallery.html src="experiment1.png" height="300" alt="Experiment 1" %}
+{% include image-gallery.html images="experiment1.png" height="300" alt="Experiment 1" %}
 experiment1_image
 ### We show that by sticking ForceStickers to bottom of packages, we can sense weight and determine number of items kept inside, for consistency checks in warehouse settings. We take 160 measurements with different number of items (RPis placed in the package) and obtain classification confusion matrix.
 
