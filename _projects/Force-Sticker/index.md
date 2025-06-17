@@ -16,7 +16,7 @@ main-image: /force-sticker-banner_8.png
 # Experiments with ForceStickers 
 
 ## Package Consistency checks with ForceStickers:
-![Alt text](experiment1.png)
+expirment-images: /experiment1.png
 ### We show that by sticking ForceStickers to bottom of packages, we can sense weight and determine number of items kept inside, for consistency checks in warehouse settings. We take 160 measurements with different number of items (RPis placed in the package) and obtain classification confusion matrix.
 
 ---
@@ -31,7 +31,7 @@ Experiment2-image: /experiment2.png
 You can put in multiple entries. All images will be at a fixed height in the same row. With smaller window, they will switch to columns.  
 
 ### Embeed images
-{% include image-gallery.html images="force-sticker-banner.png" height="500" %} 
+{% include image-gallery.html images="force-sticker-banner.png" height="500","experiment1.png","experiment2.png" %} 
 place the images in project folder/images then update the file path.   
 
 
