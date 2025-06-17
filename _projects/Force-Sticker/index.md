@@ -31,7 +31,7 @@ Experiment2-image: /experiment2.png
 You can put in multiple entries. All images will be at a fixed height in the same row. With smaller window, they will switch to columns.  
 
 ### Embeed images
-{% include image-gallery.html images="force-sticker-banner.png" height="500","experiment1.png","experiment2.png" %} 
+{% include image-gallery.html images="force-sticker-banner.png","experiment1.png","experiment2.png" height="400"%} 
 place the images in project folder/images then update the file path.   
 
 
