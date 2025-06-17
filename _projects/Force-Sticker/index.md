@@ -16,13 +16,13 @@ main-image: /force-sticker-banner_8.png
 # Experiments with ForceStickers 
 
 ## Package Consistency checks with ForceStickers:
-{% include image-gallery.html images="experiment1.png" height="300" alt="Experiment 1" %}
-experiment1_image
+{% include image-gallery.html images="experiment1.png" height="400" alt="Experiment 1" %}
+
 ### We show that by sticking ForceStickers to bottom of packages, we can sense weight and determine number of items kept inside, for consistency checks in warehouse settings. We take 160 measurements with different number of items (RPis placed in the package) and obtain classification confusion matrix.
 
 ---
 ## Sensing knee-impact forces:
-Experiment2-image: /experiment2.png
+{% include image-gallery.html images="experiment2.png" height="400" alt="Experiment 2" %}
 ### We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
 
 ## Embedding images 
