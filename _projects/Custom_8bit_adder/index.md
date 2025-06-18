@@ -38,19 +38,19 @@ The Fundamental Carry Operator Cell (FCO Cell) serves as the second key componen
 Pi:j = Pi:k+1 . Pk:j
 Gi:j = Gi:k+1 ∨ (Pi:k+1 . Gk:j)
 
-{% include image-gallery.html images="FCO_Cell.png" height="400" alt="FCO_Cell" %}
+{% include image-gallery.html images="FCO_CELL.png" height="400" alt="FCO_Cell" %}
 
 ## Post Processing Carry Cell:
 
 The Post Processing Carry cell (PPC Cell) is one halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the carry out values given the P and G values from the prior FCO stage as well as the carry in. The signals can be illustrated with the following logic equation:
 Ci = (Pi . Cin) ∨  Gi
 
-{% include image-gallery.html images="PPC_Cell.png" height="400" alt="PPC_cell" %}
+{% include image-gallery.html images="PPC.png" height="400" alt="PPC_cell" %}
 
 ## Post Processing Sum Cell:
 
 The Post Processing Sum Cell (PPS Cell) is the second halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the output of the sum values. The signals can be illustrated with the following logic equation:
 Sumi = pi ⊕ Ci-1
 
-{% include image-gallery.html images="PPS_Cell.png" height="400" alt="PPS_Cell" %}
+{% include image-gallery.html images="PPS.png" height="400" alt="PPS_Cell" %}
 
