@@ -26,7 +26,7 @@ main-image: /force-sticker-banner_8.png
 
 ##### 	We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
 
-### This showed that ForceSticker can even be used in scenarios like knee-implants which are irregularly shaped and massively space constraint. Further, by monitoring the knee joint forces over time, the implant’s fit and function can be evaluated, as well as the implant health, if the implant starts wearing down then the sensed force will also change.
+This showed that ForceSticker can even be used in scenarios like knee-implants which are irregularly shaped and massively space constraint. Further, by monitoring the knee joint forces over time, the implant’s fit and function can be evaluated, as well as the implant health, if the implant starts wearing down then the sensed force will also change.
 
 ---
 
@@ -40,9 +40,7 @@ main-image: /force-sticker-banner_8.png
 ---
 ## Future Work
 
-### Even though the sensors we designed were thin sticker-like, enabled first demonstrations of bunch of interesting applications and even turned out to be robust, ForceSticker is still research in motion and there is a lot of ground to cover before we could achieve the force vision showed earlier in Fig. 2a and the teaser video.
-
-test
+Even though the sensors we designed were thin sticker-like, enabled first demonstrations of bunch of interesting applications and even turned out to be robust, ForceSticker is still research in motion and there is a lot of ground to cover before we could achieve the force vision showed earlier in Fig. 2a and the teaser video.
 
 The biggest roadblock lies in enabling such ForceStickers to work with smartphones, since the existing ForceStickers only work with dedicated RFID readers, which may not be always available. Further, we need to realize mass fabrication of these sensors (right now it is mostly manual and DIY assembly), explore commercially-viable materials for everyday life applications, and bio-degradable hermetically sealed sensors for in-vivo applications. We also need to improve the error performance of the sensor in more challenging environments, and scaling the performance to a large number of sensors.
 
