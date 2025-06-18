@@ -52,6 +52,7 @@ Robustness test of the sensor by applying forces on it using an in-house develop
 ##### The cyclical testing setup where an actuator applies forces on the sensor, and we see that even after 10,000 force presses by the actuator, the sensor’s error performance remains about the same (0.3N)
 
 ---
+# Quick Video Summary:
 
 {% include youtube-video.html id="arSO7shzFT4" autoplay= "false"%}
 ---
