@@ -27,7 +27,9 @@ We choose to use dynamic logic over static complementary CMOS and other techniqu
 ## Propagate-Generate Cell:
 
 The Propagate-Generate Cell (PG Cell) is a crucial component among the three distinct cells employed in the construction of our 8-bit Kogge-Stone adder. This cell serves as a pre-processing stage, responsible for computing generate and propagate signals for each pair of input bits, denoted as A and B. The generation of these signals follows a well-defined logic, governed by the following equations:
+<br>
 pi = Ai ⊕ Bi
+<br>
 gi = Ai . Bi
 
 {% include image-gallery.html images="PG_Cell.png" height="400" alt="PG_cell" %}
@@ -35,7 +37,9 @@ gi = Ai . Bi
 ## Fundamental Carry Operator 
 
 The Fundamental Carry Operator Cell (FCO Cell) serves as the second key component within our 8-bit Kogge-Stone adder. It can be conceptualized as a block comprising a group propagate and generate structure, or as a carry look-ahead network. These intermediate signals, denoted as group propagate and generate, play a pivotal role in the adder’s operation, and are determined by the following logic equations:
+<br>
 Pi:j = Pi:k+1 . Pk:j
+<br>
 Gi:j = Gi:k+1 ∨ (Pi:k+1 . Gk:j)
 
 {% include image-gallery.html images="FCO_CELL.png" height="400" alt="FCO_Cell" %}
@@ -43,6 +47,7 @@ Gi:j = Gi:k+1 ∨ (Pi:k+1 . Gk:j)
 ## Post Processing Carry Cell:
 
 The Post Processing Carry cell (PPC Cell) is one halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the carry out values given the P and G values from the prior FCO stage as well as the carry in. The signals can be illustrated with the following logic equation:
+<br>
 Ci = (Pi . Cin) ∨  Gi
 
 {% include image-gallery.html images="PPC.png" height="400" alt="PPC_cell" %}
@@ -50,6 +55,7 @@ Ci = (Pi . Cin) ∨  Gi
 ## Post Processing Sum Cell:
 
 The Post Processing Sum Cell (PPS Cell) is the second halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the output of the sum values. The signals can be illustrated with the following logic equation:
+<br>
 Sumi = pi ⊕ Ci-1
 
 {% include image-gallery.html images="PPS.png" height="400" alt="PPS_Cell" %}
