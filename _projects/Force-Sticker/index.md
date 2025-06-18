@@ -18,13 +18,13 @@ main-image: /force-sticker-banner_8.png
 ## Package Consistency checks with ForceStickers:
 {% include image-gallery.html images="experiment1.png" height="400" alt="Experiment 1" %}
 
-##### 	We show that by sticking ForceStickers to bottom of packages, we can sense weight and determine number of items kept inside, for consistency checks in warehouse settings. We take 160 measurements with different number of items (RPis placed in the package) and obtain classification confusion matrix.
+##### We show that by sticking ForceStickers to bottom of packages, we can sense weight and determine number of items kept inside, for consistency checks in warehouse settings. We take 160 measurements with different number of items (RPis placed in the package) and obtain classification confusion matrix.
 
 ---
 ## Sensing knee-impact forces:
 {% include image-gallery.html images="experiment2.png" height="400" alt="Experiment 2" %}
 
-##### 	We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
+##### We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
 
 This showed that ForceSticker can even be used in scenarios like knee-implants which are irregularly shaped and massively space constraint. Further, by monitoring the knee joint forces over time, the implant’s fit and function can be evaluated, as well as the implant health, if the implant starts wearing down then the sensed force will also change.
 
@@ -32,7 +32,8 @@ This showed that ForceSticker can even be used in scenarios like knee-implants w
 
 ## Cyclic testing of ForceSticker:
 
-### Robustness test of the sensor by applying forces on it using an in-house developed automated actuator-based cyclic test setup
+Robustness test of the sensor by applying forces on it using an in-house developed automated actuator-based cyclic test setup
+
 {% include image-gallery.html images="experiment3.png" height="400" alt="Experiment 3" %}
 
 ##### The cyclical testing setup where an actuator applies forces on the sensor, and we see that even after 10,000 force presses by the actuator, the sensor’s error performance remains about the same (0.3N)
