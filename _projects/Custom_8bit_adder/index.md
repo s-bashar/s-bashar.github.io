@@ -30,7 +30,7 @@ The Propagate-Generate Cell (PG Cell) is a crucial component among the three dis
 pi = Ai ⊕ Bi
 gi = Ai . Bi
 
-{% include image-gallery.html images="PG_Cell.png" height="400" PG_cell%}
+{% include image-gallery.html images="PG_Cell.png" height="400" alt="PG_cell" %}
 
 
 
