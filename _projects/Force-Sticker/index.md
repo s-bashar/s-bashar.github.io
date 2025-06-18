@@ -55,9 +55,14 @@ Robustness test of the sensor by applying forces on it using an in-house develop
 
 {% include youtube-video.html id="arSO7shzFT4" autoplay= "false"%}
 ---
-## Future Work
+# Future Work
 
 Even though the sensors we designed were thin sticker-like, enabled first demonstrations of bunch of interesting applications and even turned out to be robust, ForceSticker is still research in motion and there is a lot of ground to cover before we could achieve the force vision showed earlier.
 
 The biggest roadblock lies in enabling such ForceStickers to work with smartphones, since the existing ForceStickers only work with dedicated RFID readers, which may not be always available. Further, we need to realize mass fabrication of these sensors (right now it is mostly manual and DIY assembly), explore commercially-viable materials for everyday life applications, and bio-degradable hermetically sealed sensors for in-vivo applications. We also need to improve the error performance of the sensor in more challenging environments, and scaling the performance to a large number of sensors.
 
+# References:
+[1] “ForceSticker: Wireless, Batteryless, Thin & Flexible Force Sensors”, Gupta el al. IMWUT Issue 1 2023
+[2] “WiForce: Wireless Sensing and Localization of Contact Forces on a Space Continuum”, Gupta et al. NSDI’21
+[3] “Soft Radio-Frequency Identification Sensors: Wireless Long-Range Strain Sensors Using Radio-Frequency Identification”, Teng at al. SORO’19
+[4] “MARS: Nano-Power Battery-free Wireless Interfaces for Touch, Swipe and Speech Input”, Arora et al UIST’21
