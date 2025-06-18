@@ -28,22 +28,23 @@ main-image: /force-sticker-banner_8.png
 
 ### This showed that ForceSticker can even be used in scenarios like knee-implants which are irregularly shaped and massively space constraint. Further, by monitoring the knee joint forces over time, the implant’s fit and function can be evaluated, as well as the implant health, if the implant starts wearing down then the sensed force will also change.
 
+---
+
 ## Cyclic testing of ForceSticker:
 
-### robust test of the sensor by applying forces on it using an in-house developed automated actuator-based cyclic test setup
+### Robustness test of the sensor by applying forces on it using an in-house developed automated actuator-based cyclic test setup
 {% include image-gallery.html images="experiment3.png" height="400" alt="Experiment 3" %}
 
 ##### The cyclical testing setup where an actuator applies forces on the sensor, and we see that even after 10,000 force presses by the actuator, the sensor’s error performance remains about the same (0.3N)
 
-## Embedding images 
-### External images
-{% include image-gallery.html images="https://live.staticflickr.com/65535/52821641477_d397e56bc4_k.jpg, https://live.staticflickr.com/65535/52822650673_f074b20d90_k.jpg" height="400"%}
-<span style="font-size: 10px">"Starship Test Flight Mission" from https://www.flickr.com/photos/spacex/52821641477/</span>  
-You can put in multiple entries. All images will be at a fixed height in the same row. With smaller window, they will switch to columns.  
+---
+## Future Work
 
-### Embeed images
+### Even though the sensors we designed were thin sticker-like, enabled first demonstrations of bunch of interesting applications and even turned out to be robust, ForceSticker is still research in motion and there is a lot of ground to cover before we could achieve the force vision showed earlier in Fig. 2a and the teaser video.
 
+test
 
+The biggest roadblock lies in enabling such ForceStickers to work with smartphones, since the existing ForceStickers only work with dedicated RFID readers, which may not be always available. Further, we need to realize mass fabrication of these sensors (right now it is mostly manual and DIY assembly), explore commercially-viable materials for everyday life applications, and bio-degradable hermetically sealed sensors for in-vivo applications. We also need to improve the error performance of the sensor in more challenging environments, and scaling the performance to a large number of sensors.
 
 ## Embedding youtube video
 The second video has the autoplay on. copy and paste the 11-digit id found in the url link. <br>
