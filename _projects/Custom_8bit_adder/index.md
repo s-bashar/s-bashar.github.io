@@ -60,3 +60,18 @@ Sumi = pi ⊕ Ci-1
 
 {% include image-gallery.html images="PPS.png" height="400" alt="PPS_Cell" %}
 
+---
+
+# OR + AND transistor level implementation with dynamic & domino logic + high skew inverter
+
+## AND Gate:
+
+{% include image-gallery.html images="AND.png" height="400" alt="AND_Cell" %}
+
+Shows the transistor level implementation of the AND gate found in the PG, PPC and FCO cell. This gate is utilizing dynamic and domino logic, giving way to faster operation. We have placed a high-skew inverter at the output of the AND gate to favor a rising edge transition to be able to take advantage of the lower logical effort needed for the gate.
+
+## OR Gate:
+
+{% include image-gallery.html images="OR.png" height="400" alt="OR_Cell" %}
+
+Shows the transistor level schematic of the OR gate utilizing dynamic and domino logic to provide lower logical effort and therefore faster operation. The OR gate is found in multiple cells that are crucial for the operation of the 8-bit adder such as the PPC and FCO cell. This custom designed gate also utilizes a high skew inverter, favoring a critical rising edge on the output, and using less logical effort compared to an un-skewed inverter.
