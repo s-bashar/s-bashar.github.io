@@ -15,9 +15,8 @@ main-image: /force-sticker-banner_8.png
 
 # Design of ForceSticker:
 
-We realized that force-information can be piggybacked over existing RFIDs, with no additional power and requirement of any interfacing electronics, by simply interfacing a force sensitive capacitor to the RFID.
-
-Hence, the designed force-stickers simply consist of a thin parallel-plate capacitor, smaller than a rice grain (b.i) that deforms under applied force, and is interfaced in between the RFID squiggly antenna and the RFID IC (c). But, how does the force-information from the capacitor get communicated via the RFID IC, without requiring any more electronics and power? The secret sauce lies in the capacitor-design, choosing the correct polymer and correct dimensions!
+WiForceStickercreates a new class of sticker-like force sensors which are capable of wireless readout without battery, to serve in-vivo and ubiquitous 
+weight sensing applications. This is enabled by piggybacking analog sensor data onto a digitally identified RFID link. 
 
 {% include image-gallery.html images="design.png" height="400" alt="Design" %}
 
