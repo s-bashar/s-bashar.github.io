@@ -18,6 +18,12 @@ main-image: /force-sticker-banner_8.png
 WiForceStickercreates a new class of sticker-like force sensors which are capable of wireless readout without battery, to serve in-vivo and ubiquitous 
 weight sensing applications. This is enabled by piggybacking analog sensor data onto a digitally identified RFID link. 
 
+{% include image-gallery.html images="design2.png" height="400" alt="Design2" %}
+##### When a capacitor is interfaced to an antenna, it shows a non-linear relationship between the frequency, capacitance and the phase change. We find that when capacitor is designed between 1–10 pF range, the phase change effect is sensitive to RFID frequency of 900 MHz
+
+
+
+
 {% include image-gallery.html images="design.png" height="400" alt="Design" %}
 
 ##### Shows ForceSticker components, b.i, ii) Shows capacitor sensor compared to a rice grain, zoomed in view c) Shows how the capacitor sensor is attached to the RFID IC (peeled off in the image via tweezers) via hair-like tungsten filaments highlighted in red, can be seen more clearly in a) and b.ii)
