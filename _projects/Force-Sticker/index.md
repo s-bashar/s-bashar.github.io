@@ -23,7 +23,10 @@ main-image: /force-sticker-banner_8.png
 ---
 ## Sensing knee-impact forces:
 {% include image-gallery.html images="experiment2.png" height="400" alt="Experiment 2" %}
-### We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
+
+##### We show how ForceSticker can be prototyped with a custom Flexible PCB RFID, that allows us to make a 2x smaller ForceSticker, and makes it small enough to allow sensing forces from a knee-joint
+
+### This showed that ForceSticker can even be used in scenarios like knee-implants which are irregularly shaped and massively space constraint. Further, by monitoring the knee joint forces over time, the implant’s fit and function can be evaluated, as well as the implant health, if the implant starts wearing down then the sensed force will also change.
 
 ## Embedding images 
 ### External images
