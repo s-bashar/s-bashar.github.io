@@ -4,9 +4,12 @@ title: Force Sticker
 description:  
     We show that the force-information can be piggybacked over existing RFIDs, with no additional power and requirement of any interfacing electronics, by simply interfacing a force sensitive capacitor to the RFID. Hence, the designed force-stickers consist of a thin parallel-plate capacitor, smaller than a rice grain that deforms under applied force, and is interfaced in between the RFID squiggly antenna and the RFID IC. But, how does the force-information from the capacitor get communicated via the RFID IC, without requiring any more electronics and power? The secret sauce lies in the capacitor-design, choosing the correct polymer and correct dimensions! 
 skills: 
-  - PCB Design
-  - Antenna/PCB Simulations Ansys HFSS
+  - Rigid/Flex PCB Design (Altium Designer)
+  - DFT
+  - Antenna/PCB Simulations (Ansys HFSS)
   - Low-Power Systems 
+  - RF Transmission Lines
+  - Small Antenna Design
 
 main-image: /force-sticker-banner_8.png
 ---
