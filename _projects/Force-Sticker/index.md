@@ -21,7 +21,7 @@ Hence, the designed force-stickers simply consist of a thin parallel-plate capac
 
 {% include image-gallery.html images="design.png" height="400" alt="Design" %}
 
-#####Shows ForceSticker components, b.i, ii) Shows capacitor sensor compared to a rice grain, zoomed in view c) Shows how the capacitor sensor is attached to the RFID IC (peeled off in the image via tweezers) via hair-like tungsten filaments highlighted in red, can be seen more clearly in a) and b.ii)
+##### Shows ForceSticker components, b.i, ii) Shows capacitor sensor compared to a rice grain, zoomed in view c) Shows how the capacitor sensor is attached to the RFID IC (peeled off in the image via tweezers) via hair-like tungsten filaments highlighted in red, can be seen more clearly in a) and b.ii)
 
 ---
 # Experiments with ForceStickers 
