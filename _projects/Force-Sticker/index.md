@@ -13,6 +13,17 @@ main-image: /force-sticker-banner_8.png
 
 ---
 
+# Design of ForceSticker:
+
+We realized that force-information can be piggybacked over existing RFIDs, with no additional power and requirement of any interfacing electronics, by simply interfacing a force sensitive capacitor to the RFID.
+
+Hence, the designed force-stickers simply consist of a thin parallel-plate capacitor, smaller than a rice grain (b.i) that deforms under applied force, and is interfaced in between the RFID squiggly antenna and the RFID IC (c). But, how does the force-information from the capacitor get communicated via the RFID IC, without requiring any more electronics and power? The secret sauce lies in the capacitor-design, choosing the correct polymer and correct dimensions!
+
+{% include image-gallery.html images="design.png" height="400" alt="Design" %}
+
+#####Shows ForceSticker components, b.i, ii) Shows capacitor sensor compared to a rice grain, zoomed in view c) Shows how the capacitor sensor is attached to the RFID IC (peeled off in the image via tweezers) via hair-like tungsten filaments highlighted in red, can be seen more clearly in a) and b.ii)
+
+---
 # Experiments with ForceStickers 
 
 ## Package Consistency checks with ForceStickers:
