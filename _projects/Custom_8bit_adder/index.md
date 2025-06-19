@@ -80,4 +80,4 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 
 ## Automatic place and route ripple carry adder vs. Kogge-Stone Adder
 
-{% include image-gallery.html images="PNR.png,KGS.png" height="400" alt="PNR trans sims" %}
+{% include image-gallery.html images="pnr.png,KSA.png" height="400" alt="PNR trans sims" %}
