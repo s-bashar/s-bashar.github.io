@@ -87,7 +87,6 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 
 ## Table Results:
 
-
 | Category                                | Place+Route Schematic     | Custom Design Schematic     | Place+Route (Optional) | Custom Design (Optional) |
 |----------------------------------------|----------------------------|------------------------------|------------------------|---------------------------|
 | **Performance for VDD = 1.1V**         |                            |                              |                        |                           |
@@ -98,11 +97,10 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 | Power consumption @ 1 GHz              | 267 µW/cycle              | 29.12 µW/cycle               | NA                     | NA                        |
 | Energy per operation @ 1 GHz           | 267 fJ/cycle              | 29.12 fJ/cycle               | NA                     | NA                        |
 | **Other Important Parameters**         |                            |                              |                        |                           |
-| Adder architecture                     | Ripple-carry              | Kogge-Stone Parallel Prefix                | NA                     | NA                        |
-| Core area                              | ------------              | ------------                 | NA                     | NA                        |
-| Critical input pair (A=?, B=?)         | A = 00000001<br>B = 00111111 | A = 00000001<br>B = 00111111 | NA                     | NA                        |
+| Adder architecture                     | Ripple-carry              | Kogge-Stone Parallel Prefix | NA                     | NA                        |
+| Core area                              | —                         | —                            | NA                     | NA                        |
+| Critical input pair (A=?, B=?)         | A = 00000001, B = 00111111 | A = 00000001, B = 00111111  | NA                     | NA                        |
 | Transistor types used                  | Normal Threshold Voltage  | Normal Threshold Voltage     | NA                     | NA                        |
-
 
 
 ## Suggestions for futre Iterations:
