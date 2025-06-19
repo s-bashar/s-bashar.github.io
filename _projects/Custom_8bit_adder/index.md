@@ -80,4 +80,19 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 
 ## Automatic place and route ripple carry adder vs. Kogge-Stone Adder
 
-{% include image-gallery.html images="pnr.png, KSA.png" height="400" alt="PNR trans sims" %}
+{% include image-gallery.html images="pnr.png" height="400" alt="PNR trans sims" %}
+##### Automatic Place and Route Adder simulation at fMax=2.2Ghz
+{% include image-gallery.html images="KSA.png" height="400" alt="PNR trans sims" %}
+##### Kogge-Stone Adder at fMax=3Ghz
+
+## Table Results:
+
+|    | Header 2 | Header 1 | 
+|--------------------------|
+|Performance for VDD= 1.1V |
+| fMax |Row 1, Col 1 | Row 1, Col 2 |
+| Power consumption @ fmax|Row 2, Col 1 | Row 2, Col 2 |
+
+
+## Suggestions for futre Iterations:
+
