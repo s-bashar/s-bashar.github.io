@@ -87,9 +87,9 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 
 ## Table Results:
 
-|    | Header 2 | Header 1 | 
+|    	| Header 2 | Header 1 | 
 |--------------------------|
-|Performance for VDD= 1.1V |
+|		|Performance for VDD= 1.1V |
 | fMax |Row 1, Col 1 | Row 1, Col 2 |
 | Power consumption @ fmax|Row 2, Col 1 | Row 2, Col 2 |
 
