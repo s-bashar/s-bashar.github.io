@@ -75,3 +75,9 @@ Shows the transistor level implementation of the AND gate found in the PG, PPC a
 {% include image-gallery.html images="OR.png" height="400" alt="OR_Cell" %}
 
 Shows the transistor level schematic of the OR gate utilizing dynamic and domino logic to provide lower logical effort and therefore faster operation. The OR gate is found in multiple cells that are crucial for the operation of the 8-bit adder such as the PPC and FCO cell. This custom designed gate also utilizes a high skew inverter, favoring a critical rising edge on the output, and using less logical effort compared to an un-skewed inverter.
+
+# Transisent simulation and Results
+
+## Automatic place and route ripple carry adder vs. Kogge-Stone Adder
+
+{% include image-gallery.html images="PNR.png,KGS.png" height="400" alt="PNR trans sims" %}
