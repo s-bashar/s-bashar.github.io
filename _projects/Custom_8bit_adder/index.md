@@ -103,5 +103,16 @@ Shows the transistor level schematic of the OR gate utilizing dynamic and domino
 | Transistor types used                  | Normal Threshold Voltage  | Normal Threshold Voltage     | NA                     | NA                        |
 
 
-## Suggestions for futre Iterations:
+## References:
+
+References:
+[1] https://www.diva-portal.org/smash/get/diva2:19722/fulltext01 <br>
+[2] https://iopscience.iop.org/article/10.1088/1742-6596/1049/1/012077/pdf <br>
+[3] https://www.cl.cam.ac.uk/research/srg/han/ACS-P35/8-bit-KoggeStone-Adder.pdf <br>
+[4] https://www.youtube.com/watch?v=ivry9K_7HzM <br>
+[5] https://www.youtube.com/watch?v=tgY4UIufLd0 <br> 
+[6] https://link.springer.com/chapter/10.1007/978-1-4757-3705-9_4 <br>
+[7] https://www.researchgate.net/publication/336825176_ Comparitive_Analysis_of_Brent-Kang_Kogge-Stone_Parallel-Prefix_Adder_for_Their_Area_Delay_Power_Consumption <br>
+[8] http://www.ijeetc.com/v3/v3n1/13_A0141_(p.116-121).pdf <br>
+
 
