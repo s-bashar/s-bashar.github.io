@@ -10,5 +10,5 @@ skills:
   - Transmission Line Design 
  
 
-main-image: /overview_4.png
+main-image: /overview_5.png
 ---
