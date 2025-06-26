@@ -30,10 +30,14 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 ## SHA-256 Optimization: 
 
 {% include image-gallery.html images="optimization.png" height="400" alt="optimization" %}
-
 ## SHA-256 Results:
-
 {% include image-gallery.html images="results.png" height="400" alt="results" %}
+Device: EP2AGX45DF2915
+Logic utilization: 8%
+Memory ALUTs: 0
+Combinational ALUTs: 7%
+Dedicated Logic Registed 3%
+Fmax: 122.61MHz
 
 # Bitcoin Hashing Algorithm:
 
@@ -49,7 +53,7 @@ Comparing or storing H[0] (or full hash) depending on the application.
 
 ## Architectural Breakdown 
 
-### 1. Top-Level Module Parameters and Interfaces
+### Top-Level Module Parameters and Interfaces
 
 The bitcoin_hash_par module takes a block header from memory and computes the double SHA-256 hash across 16 parallel nonces.
 
