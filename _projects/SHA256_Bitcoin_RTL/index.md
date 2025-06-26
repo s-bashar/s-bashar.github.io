@@ -15,7 +15,7 @@ main-image: /overview.png
 
 # SHA-256 Properties:
 
-{% include image-gallery.html images="properties.png" height="400" alt="Props" %}
+{% include image-gallery.html images="props.png" height="400" alt="Props" %}
   - Compression: Given a variable input size, outputs a fixed length
   - Avalanche Effect: A small change in input, even a single character, creates a significant change to the output
   - Determinism: The same input will give the same output
@@ -95,7 +95,7 @@ This is how we implemented parallel computation for nonce values for phase 2. We
 Optimized register by a considerable amount(really happy about how we use the arrays), nothing is wasted that's how we can fit all 16 nonce parallelization of hardware on the board
 Optimized each for and if statement so nothing is wasted
 
-{% include image-gallery.html images="btc_opt2.png" height="400" alt="btc_opt2" %}
+{% include image-gallery.html images="btc_opt2.png" height="600" alt="btc_opt2" %}
 
 
 
