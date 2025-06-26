@@ -10,7 +10,7 @@ description: We implemented RTL models of the SHA-256 and Bitcoin hashing algori
 
 main-image: /overview.png
 ---
-{% include image-gallery.html images="sha256_prop_1.PNG" height="400" alt="sha256_properties" %}
+{% include image-gallery.html images="sha256_prop_2.PNG" height="400" alt="sha256_properties" %}
 
 # SHA-256 Properties:
   - Compression: Given a variable input size, outputs a fixed length
