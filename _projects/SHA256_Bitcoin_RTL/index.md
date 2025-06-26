@@ -23,7 +23,7 @@ main-image: /overview.png
   - Collision Resistance: Two distinct inputs have low probability to have the same output 
   - Efficient: SHA-256 balances security and speed.
 
-# SHA-256 Alogithm 
+# SHA-256 Algorithm
 
 Our SHA-256 RTL implementation is carefully written to avoid inferred latches and memory blocks, resulting in more predictable synthesis behavior and improved portability. All sequential logic is explicitly registered using always_ff and non-blocking assignments (<=), ensuring no unintended latch generation. Additionally, we use a small, explicitly managed 16-word buffer (w[0:15]) implemented as shift registers, avoiding block RAM inference. This design choice reduces area and makes timing closure more straightforward for ASIC and FPGA targets.
 
@@ -34,3 +34,55 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 ## SHA-256 Results:
 
 {% include image-gallery.html images="results.png" height="400" alt="results" %}
+
+# Bitcoin Hashing Algorithm:
+
+## Overview:
+
+Concatenating a 512-bit message block from the 80-byte block header, padded with a 32-bit nonce.
+
+Running the SHA-256 hash function on this message to generate a 256-bit digest.
+
+Applying SHA-256 again on the result to yield the final hash (double SHA-256).
+
+Comparing or storing H[0] (or full hash) depending on the application.
+
+## Architectural Breakdown 
+
+### 1. Top-Level Module Parameters and Interfaces
+
+The bitcoin_hash_par module takes a block header from memory and computes the double SHA-256 hash across 16 parallel nonces.
+
+NUM_OF_WORDS defines the block size; num_nonces is fixed at 16 for parallelism.
+
+Standard memory-mapped IO signals handle data exchange with external memory, including memory_addr, memory_write_data, and memory_read_data.
+
+### FSM-Controlled Pipeline:
+
+The hashing process is controlled via a six-state FSM:
+
+IDLE: Initializes state and loads SHA-256 IV constants.
+
+READ: Reads message blocks from memory into the internal W array and inserts padding.
+
+COMP1B: First SHA round. Shared among all nonces—hashes the constant message block.
+
+COMP2B: Second SHA round for all 16 nonces in parallel—each nonce has its own customized W block with its nonce injected.
+
+HASHFIN: Final SHA round. Uses the output of COMP2B as input to a second SHA-256 function (double hashing).
+
+WRITE: Writes out H[0] of the final hash result for each nonce.
+
+### Parallelism and Resource Mapping
+
+SHA256 operations for each nonce are done in parallel, with separate copies of state registers {A–H} and message schedule buffers w[0:15][nonce] for each nonce.
+
+The state machine controls the parallel block updates with for loops over current_nonce, enabling 16 nonces to progress through the hashing pipeline simultaneously.
+
+This significantly reduces the time to evaluate a batch of nonces versus purely serial designs.\
+
+### W Buffer as Shift Register
+The message schedule array w[16] is implemented as a manually shifted buffer, updated each cycle using an explicit for-loop.
+
+This avoids BRAM inference and allows the schedule to evolve cleanly across clock cycles, simplifying synthesis and improving resource predictability for ASIC/FPGA mapping.
+
