@@ -15,8 +15,6 @@ main-image: /overview.png
 
 # SHA-256 Properties:
 
-properties
-
 {% include image-gallery.html images="properties.png" height="400" alt="Design2" %}
 
 
