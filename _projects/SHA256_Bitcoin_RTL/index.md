@@ -49,11 +49,9 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - Applying SHA-256 again on the result to yield the final hash (double SHA-256).
 
-   - Comparing or storing H[0] (or full hash) depending on the application.
+   - Comparing or storing H[0] (or full hash) depending on the application. 
 
-## Architectural Breakdown 
-
-### Top-Level Module Parameters and Interfaces
+## Top-Level Module Parameters and Interfaces
 
    - The bitcoin_hash_par module takes a block header from memory and computes the double SHA-256 hash across 16 parallel nonces.
 
@@ -61,7 +59,7 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - Standard memory-mapped IO signals handle data exchange with external memory, including memory_addr, memory_write_data, and memory_read_data.
 
-### FSM-Controlled Pipeline:
+## FSM-Controlled Pipeline:
 
    - The hashing process is controlled via a six-state FSM:
 
@@ -77,7 +75,7 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - WRITE: Writes out H[0] of the final hash result for each nonce.
 
-### Parallelism and Resource Mapping
+## Parallelism and Resource Mapping
 
    - SHA256 operations for each nonce are done in parallel, with separate copies of state registers {A–H} and message schedule buffers w[0:15][nonce] for each nonce.
 
@@ -85,7 +83,7 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - This significantly reduces the time to evaluate a batch of nonces versus purely serial designs.\
 
-### W Buffer as Shift Register
+## W Buffer as Shift Register
 
    - The message schedule array w[16] is implemented as a manually shifted buffer, updated each cycle using an explicit for-loop.
 
