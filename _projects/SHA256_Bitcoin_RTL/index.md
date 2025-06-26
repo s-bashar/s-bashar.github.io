@@ -83,12 +83,6 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - This significantly reduces the time to evaluate a batch of nonces versus purely serial designs.\
 
-## W Buffer as Shift Register:
-
-   - The message schedule array w[16] is implemented as a manually shifted buffer, updated each cycle using an explicit for-loop.
-
-   - This avoids BRAM inference and allows the schedule to evolve cleanly across clock cycles, simplifying synthesis and improving resource predictability for ASIC/FPGA mapping.
-
 ## Optimization 
 
 The first 19 words are always the same and each header+nonce message to be hashed is split into two blocks.
@@ -96,6 +90,14 @@ Therefore, the first block of 16 is always the same, so its hash is only calcula
 We save the hash value from this point so we can revert back to this hash value when you computing different nonces 
 
 {% include image-gallery.html images="btc_opt.png" height="400" alt="btc_opt" %}
+
+---
+
+This is how we implemented parallel computation for nonce values for phase 2. We used the same logic in phase 3. For phase one we used the original optimization of only read/comp first message once
+Optimized register by a considerable amount(really happy about how we use the arrays), nothing is wasted that's how we can fit all 16 nonce parallelization of hardware on the board
+Optimized each for and if statement so nothing is wasted
+
+{% include image-gallery.html images="btc_opt2.png" height="400" alt="btc_opt2" %}
 
 
 
