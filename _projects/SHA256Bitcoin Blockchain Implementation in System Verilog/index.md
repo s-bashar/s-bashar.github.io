@@ -21,3 +21,4 @@ main-image: /overview.png
   - One-Way: No way to reverse engineer the output back to the input, inshuring security
   - Collision Resistance: Two distinct inputs have low probability to have the same output 
   - Efficient: SHA-256 balances security and speed.
+  - w
