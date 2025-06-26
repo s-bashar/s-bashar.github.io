@@ -95,7 +95,7 @@ This is how we implemented parallel computation for nonce values for phase 2. We
 Optimized register by a considerable amount(really happy about how we use the arrays), nothing is wasted that's how we can fit all 16 nonce parallelization of hardware on the board
 Optimized each for and if statement so nothing is wasted
 
-{% include image-gallery.html images="btc_opt2.png" height="600" alt="btc_opt2" %}
+{% include image-gallery.html images="btcopt2.png" height="600" alt="btc_opt2" %}
 
 
 
