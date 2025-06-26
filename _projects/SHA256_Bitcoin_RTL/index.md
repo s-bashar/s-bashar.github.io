@@ -32,61 +32,62 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 {% include image-gallery.html images="optimization.png" height="400" alt="optimization" %}
 ## SHA-256 Results:
 {% include image-gallery.html images="results.png" height="400" alt="results" %}
-Device: EP2AGX45DF2915
-Logic utilization: 8%
-Memory ALUTs: 0
-Combinational ALUTs: 7%
-Dedicated Logic Registed 3%
-Fmax: 122.61MHz
+   - Device: EP2AGX45DF2915 
+   - Logic utilization: 8% 
+   - Memory ALUTs: 0 
+   - Combinational ALUTs: 7% 
+   - Dedicated Logic Registed 3% 
+   - Fmax: 122.61MHz 
 
 # Bitcoin Hashing Algorithm:
 
 ## Overview:
 
-Concatenating a 512-bit message block from the 80-byte block header, padded with a 32-bit nonce.
+   - Concatenating a 512-bit message block from the 80-byte block header, padded with a 32-bit nonce.
 
-Running the SHA-256 hash function on this message to generate a 256-bit digest.
+   - Running the SHA-256 hash function on this message to generate a 256-bit digest.
 
-Applying SHA-256 again on the result to yield the final hash (double SHA-256).
+   - Applying SHA-256 again on the result to yield the final hash (double SHA-256).
 
-Comparing or storing H[0] (or full hash) depending on the application.
+   - Comparing or storing H[0] (or full hash) depending on the application.
 
 ## Architectural Breakdown 
 
 ### Top-Level Module Parameters and Interfaces
 
-The bitcoin_hash_par module takes a block header from memory and computes the double SHA-256 hash across 16 parallel nonces.
+   - The bitcoin_hash_par module takes a block header from memory and computes the double SHA-256 hash across 16 parallel nonces.
 
-NUM_OF_WORDS defines the block size; num_nonces is fixed at 16 for parallelism.
+   - NUM_OF_WORDS defines the block size; num_nonces is fixed at 16 for parallelism.
 
-Standard memory-mapped IO signals handle data exchange with external memory, including memory_addr, memory_write_data, and memory_read_data.
+   - Standard memory-mapped IO signals handle data exchange with external memory, including memory_addr, memory_write_data, and memory_read_data.
 
 ### FSM-Controlled Pipeline:
 
-The hashing process is controlled via a six-state FSM:
+   - The hashing process is controlled via a six-state FSM:
 
-IDLE: Initializes state and loads SHA-256 IV constants.
+   - IDLE: Initializes state and loads SHA-256 IV constants.
 
-READ: Reads message blocks from memory into the internal W array and inserts padding.
+   - READ: Reads message blocks from memory into the internal W array and inserts padding.
 
-COMP1B: First SHA round. Shared among all nonces—hashes the constant message block.
+   - COMP1B: First SHA round. Shared among all nonces—hashes the constant message block.
 
-COMP2B: Second SHA round for all 16 nonces in parallel—each nonce has its own customized W block with its nonce injected.
+   - COMP2B: Second SHA round for all 16 nonces in parallel—each nonce has its own customized W block with its nonce injected.
 
-HASHFIN: Final SHA round. Uses the output of COMP2B as input to a second SHA-256 function (double hashing).
+   - HASHFIN: Final SHA round. Uses the output of COMP2B as input to a second SHA-256 function (double hashing).
 
-WRITE: Writes out H[0] of the final hash result for each nonce.
+   - WRITE: Writes out H[0] of the final hash result for each nonce.
 
 ### Parallelism and Resource Mapping
 
-SHA256 operations for each nonce are done in parallel, with separate copies of state registers {A–H} and message schedule buffers w[0:15][nonce] for each nonce.
+   - SHA256 operations for each nonce are done in parallel, with separate copies of state registers {A–H} and message schedule buffers w[0:15][nonce] for each nonce.
 
-The state machine controls the parallel block updates with for loops over current_nonce, enabling 16 nonces to progress through the hashing pipeline simultaneously.
+   - The state machine controls the parallel block updates with for loops over current_nonce, enabling 16 nonces to progress through the hashing pipeline simultaneously.
 
-This significantly reduces the time to evaluate a batch of nonces versus purely serial designs.\
+   - This significantly reduces the time to evaluate a batch of nonces versus purely serial designs.\
 
 ### W Buffer as Shift Register
-The message schedule array w[16] is implemented as a manually shifted buffer, updated each cycle using an explicit for-loop.
 
-This avoids BRAM inference and allows the schedule to evolve cleanly across clock cycles, simplifying synthesis and improving resource predictability for ASIC/FPGA mapping.
+   - The message schedule array w[16] is implemented as a manually shifted buffer, updated each cycle using an explicit for-loop.
+
+   - This avoids BRAM inference and allows the schedule to evolve cleanly across clock cycles, simplifying synthesis and improving resource predictability for ASIC/FPGA mapping.
 
