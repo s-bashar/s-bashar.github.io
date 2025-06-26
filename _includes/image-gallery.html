@@ -3,21 +3,29 @@
 
 <div class="image-gallery" style="--gallery-height: {{ gallery_height }}px;">
   {% for image_path in image_paths %}
-      {% assign image_name = image_path | strip %}
-      {% if image_name contains 'https://' %}
-          <img 
-              src="{{ image_name }}"
-              alt="Web image"
-              loading="lazy"
-          />
-      {% else %}
-          {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
-          <img 
-              src="{{ page_url_without_index }}{{ image_name }}" 
-              alt="{{image_name}}"
-              loading="lazy"
-              onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
-          />
-      {% endif %}
+    {% assign image_name = image_path | strip %}
+    {% if image_name contains 'https://' %}
+      <img 
+        src="{{ image_name }}"
+        alt="Web image"
+        loading="lazy"
+      />
+    {% else %}
+      {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
+      <img 
+        src="{{ page_url_without_index }}{{ image_name }}" 
+        alt="{{ image_name }}"
+        loading="lazy"
+        onerror="
+          if (this.src.includes('.webp')) {
+            this.onerror=null; this.src=this.src.replace('.webp', '.png');
+          } else if (this.src.includes('.png')) {
+            this.onerror=null; this.src=this.src.replace('.png', '.PNG');
+          } else if (this.src.includes('.PNG')) {
+            this.onerror=null; this.src=this.src.replace('.PNG', '.webp');
+          }
+        "
+      />
+    {% endif %}
   {% endfor %}
 </div>
