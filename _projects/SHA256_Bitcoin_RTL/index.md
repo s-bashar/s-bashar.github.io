@@ -89,3 +89,14 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
    - This avoids BRAM inference and allows the schedule to evolve cleanly across clock cycles, simplifying synthesis and improving resource predictability for ASIC/FPGA mapping.
 
+## Optimization 
+
+The first 19 words are always the same and each header+nonce message to be hashed is split into two blocks.
+Therefore, the first block of 16 is always the same, so its hash is only calculated once. 
+We save the hash value from this point so we can revert back to this hash value when you computing different nonces 
+
+{% include image-gallery.html images="btc_opt.png" height="400" alt="btc_opt" %}
+
+
+
+
