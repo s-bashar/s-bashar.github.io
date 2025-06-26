@@ -15,7 +15,10 @@ main-image: /overview.png
 
 # SHA-256 Properties:
 
-{% include image-gallery.html images="props.png" height="400" alt="sha256_properties" %}
+properties
+
+{% include image-gallery.html images="properties.png" height="400" alt="Design2" %}
+
 
   - Compression: Given a variable input size, outputs a fixed length
   - Avalanche Effect: A small change in input, even a single character, creates a significant change to the output

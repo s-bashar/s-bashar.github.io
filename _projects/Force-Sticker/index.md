@@ -22,6 +22,7 @@ WiForceStickercreates a new class of sticker-like force sensors which are capabl
 weight sensing applications. This is enabled by piggybacking analog sensor data onto a digitally identified RFID link. 
 
 {% include image-gallery.html images="design2.png" height="400" alt="Design2" %}
+{% include image-gallery.html images="design2.png" height="400" alt="Design2" %}
 ##### When a capacitor is interfaced to an antenna, it shows a non-linear relationship between the frequency, capacitance and the phase change. We find that when capacitor is designed between 1–10 pF range, the phase change effect is sensitive to RFID frequency of 900 MHz
 
 {% include image-gallery.html images="design.png" height="400" alt="Design" %}
