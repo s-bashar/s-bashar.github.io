@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Custom 8-bit Adder 
-description: Course Project for advancded digital design @UC San Diego (ECE165 Professor Patrick Mercier), goal of this project was to show that a custom 8-bit adder could out perform an automatic place and route(APR) ripple carry adder given a designer is familiar with the basic concepts of VLSI.
+description: The goal of this project was to show that a custom could out perform an automatic place and route(APR) ripple carry adder given a designer is familiar with the basic concepts of VLSI.(ECE 165, Digital Integrated Circuit Design, @UC San Diego Prof. Patrick Mercier)
 skills: 
   - Cadence Virtuoso
   - transisent simulations
