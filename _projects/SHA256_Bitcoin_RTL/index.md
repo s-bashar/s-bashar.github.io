@@ -97,6 +97,35 @@ Optimized each for and if statement so nothing is wasted
 
 {% include image-gallery.html images="btcopt2.png" height="600" alt="btc_opt2" %}
 
+## Bitcoin Hashing RTL Module Results 
+
+### Serial Implementation Results: 
+   
+   - Device: EP2AGX45DF2915 
+   - Logic utilization: 14% 
+   - Memory ALUTs: 0 
+   - Combinational ALUTs: 11% 
+   - Dedicated Logic Registed 8% 
+   - Fmax: 110.13 MHz
+   - Total fan-out: 27,414
+   - Cycles: 2224
+
+### Parallel Implementaiton Results:
+
+   - Device: EP2AGX45DF2915 
+   - Logic utilization: 99% 
+   - Memory ALUTs: 0 
+   - Combinational ALUTs: 80% 
+   - Dedicated Logic Registed 37% 
+   - Fmax: 103.16 MHz
+   - Total fan-out: 156,898
+   - Cycles: 241
+
+## Conculusion: 
+
+Parallel version completed 16 hashes in 241 cycles, or ~15.1 cycles per hash, compared to 2224 cycles per hash in serial. about 147x throughout improvment which is a 9.2x improvment in speed. Comes at the cost of area. 
+
+
 
 
 
