@@ -4,14 +4,16 @@ title: Custom 8-bit Adder
 description: The goal of this project was to show that a custom could out perform an automatic place and route(APR) ripple carry adder given a designer is familiar with the basic concepts of VLSI.(ECE 165, Digital Integrated Circuit Design, @UC San Diego Prof. Patrick Mercier)
 skills: 
   - Cadence Virtuoso
-  - transisent simulations
-  - frequency optimizing 
+  - Transisent Simulations
+  - Frequency optimization
   - Combinational and Sequential Logic design
   - Dynamic Loigc + Skewed Inverters + Dominio Logic
  
 
 main-image: /full_adder_pic.png
 ---
+# Paper Link
+[View Project Paper ISSCC format](https://s-bashar.github.io/assets/files/CustomKSAdderProj.PDF)
 
 # Design choice 
 
