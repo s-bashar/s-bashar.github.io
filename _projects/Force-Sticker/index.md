@@ -18,7 +18,7 @@ main-image: /force-sticker-banner_8.png
 # Publicaiton 
 [ACM IMWUT '23](https://dl.acm.org/doi/abs/10.1145/3580793) <br>
 [IEEE RA-L, IROS '22](https://ieeexplore.ieee.org/abstract/document/9801613) <br>
-[View The Paper Here!](./assets/files/Design_and_Evaluation_of_a_Miniaturized_Force_Sensor_Based_on_Wave_Backscattering.pdf)
+[View The Paper Here!](https://s-bashar.github.io/assets/files/Design_and_Evaluation_of_a_Miniaturized_Force_Sensor_Based_on_Wave_Backscattering.pdf)
 # Design of ForceSticker:
 
 WiForceStickercreates a new class of sticker-like force sensors which are capable of wireless readout without battery, to serve in-vivo and ubiquitous 
