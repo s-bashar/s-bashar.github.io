@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Custom 8-bit Adder 
+title: Custom 8bit Adder (KSA)
 description: The goal of this project was to show that a custom could out perform an automatic place and route(APR) ripple carry adder given a designer is familiar with the basic concepts of VLSI.(ECE 165, Digital Integrated Circuit Design, @UC San Diego Prof. Patrick Mercier)
 skills: 
   - Cadence Virtuoso
