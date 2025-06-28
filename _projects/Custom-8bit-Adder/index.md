@@ -15,7 +15,7 @@ main-image: /full_adder_pic.png
 # Paper Link
 [View Project Paper ISSCC format](https://s-bashar.github.io/assets/files/CustomKSAdderProj.pdf)
 
-# Design choice 
+# Design choice: 
 
 To overcome the limitations of the RCA, CLA, and CSA, the parallel prefix adder (PPA) architecture has emerged as a promising solution. The PPA architecture addresses the challenge of carry propagation delays by utilizing a tree-like structure with multiple levels of carry computations. By leveraging parallel processing of carry signals, the PPA significantly reduces the critical path delay and enhances overall speed performance. This innovative architecture enables efficient carry signal propagation through various paths, allowing for faster addition of multi-bit numbers. The PPA offers improved performance and reduced latency compared to traditional adder architectures, making it an attractive choice for high-speed arithmetic operations. 
 Two noteworthy variations of traditional PPA architecture include the Brent-Kung adder and the Kogge-Stone adder. The Brent-Kung adder offers improved power efficiency because of its lowest area delay with large number of input bits. However, the large number of levels in this architecture reduces its operational speed [7]. The Kogge-Stone adder has minimal fan-out and logic depth. Thus, the Kogge-Stone adder architecture becomes one of the fastest adders that is favored in electronic technology. However, as a tradeoff the KSA has a larger area.
@@ -24,19 +24,19 @@ We choose to use dynamic logic over static complementary CMOS and other techniqu
 
 ---
 
-# Adder Blocks
+# KSA Blocks:
 
 ## Propagate-Generate Cell:
 
 The Propagate-Generate Cell (PG Cell) is a crucial component among the three distinct cells employed in the construction of our 8-bit Kogge-Stone adder. This cell serves as a pre-processing stage, responsible for computing generate and propagate signals for each pair of input bits, denoted as A and B. The generation of these signals follows a well-defined logic, governed by the following equations:
 <br>
-pi = Ai ⊕ Bi
+$p_i = A_i \oplus B_i$,  
 <br>
 gi = Ai . Bi
 
 {% include image-gallery.html images="PG_Cell.png" height="400" alt="PG_cell" %}
 
-## Fundamental Carry Operator 
+## Fundamental Carry Operator: 
 
 The Fundamental Carry Operator Cell (FCO Cell) serves as the second key component within our 8-bit Kogge-Stone adder. It can be conceptualized as a block comprising a group propagate and generate structure, or as a carry look-ahead network. These intermediate signals, denoted as group propagate and generate, play a pivotal role in the adder’s operation, and are determined by the following logic equations:
 <br>
@@ -64,7 +64,7 @@ Sumi = pi ⊕ Ci-1
 
 ---
 
-# OR + AND transistor level implementation with dynamic & domino logic + high skew inverter
+# OR + AND transistor Level Implementation with Dynamic & Domino Logic + High Skew Inverter:
 
 ## AND Gate:
 
@@ -78,9 +78,9 @@ Shows the transistor level implementation of the AND gate found in the PG, PPC a
 
 Shows the transistor level schematic of the OR gate utilizing dynamic and domino logic to provide lower logical effort and therefore faster operation. The OR gate is found in multiple cells that are crucial for the operation of the 8-bit adder such as the PPC and FCO cell. This custom designed gate also utilizes a high skew inverter, favoring a critical rising edge on the output, and using less logical effort compared to an un-skewed inverter.
 
-# Transisent simulation and Results
+# Transisent simulation and Results:
 
-## Automatic place and route ripple carry adder vs. Kogge-Stone Adder
+## Automatic place and route ripple carry adder vs. Kogge-Stone Adder:
 
 {% include image-gallery.html images="pnr.png" height="400" alt="PNR trans sims" %}
 ##### Automatic Place and Route Adder simulation at fMax=2.2Ghz
