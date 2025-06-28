@@ -1,26 +1,21 @@
-<!-- SECTION 4: Contact -->
-<section id="contact" class="contact-section">
-  <h2>Contact</h2>
-
-  <div class="contact-container">
-    <!-- Direct Contact Info (Left) -->
-    <div class="direct-contact">
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
-    </div>
-
-    <!-- Contact Form (Right) -->
-    <form class="contact-form" action="https://formspree.io/f/{{site.formspree-key}}" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name">
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email">
-
-      <label for="message">Message</label>
-      <textarea id="message" cols="30" rows="10" name="message"></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
+<div class="group">
+  <!-- Left side: Direct contact info -->
+  <div class="text">
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
   </div>
-</section>
+
+  <!-- Right side: Contact form -->
+  <form action="https://formspree.io/f/{{site.formspree-key}}" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email">
+
+    <label for="message">Message</label>
+    <textarea id="message" cols="30" rows="10" name="message"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
