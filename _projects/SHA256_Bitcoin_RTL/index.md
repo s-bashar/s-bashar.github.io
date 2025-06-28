@@ -8,7 +8,7 @@ skills:
   - System Verilog
   - Parallel Computing 
 
-main-image: /overview.png
+main-image: /overview_cut.png
 ---
 
 ---
