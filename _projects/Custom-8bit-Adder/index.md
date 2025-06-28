@@ -30,7 +30,8 @@ We choose to use dynamic logic over static complementary CMOS and other techniqu
 
 The Propagate-Generate Cell (PG Cell) is a crucial component among the three distinct cells employed in the construction of our 8-bit Kogge-Stone adder. This cell serves as a pre-processing stage, responsible for computing generate and propagate signals for each pair of input bits, denoted as A and B. The generation of these signals follows a well-defined logic, governed by the following equations:
 <br>
-$p_i = A_i \oplus B_i$,  
+pi = Ai ⊕ Bi
+p<sub>i</sub> = A<sub>i</sub> ⊕ B<sub>i</sub>  
 <br>
 gi = Ai . Bi
 
