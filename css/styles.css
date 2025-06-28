@@ -440,10 +440,11 @@ nav .mobile-nav {
 /* SECTION 4: CONTACT */
 .contact-section {
     padding: 25px 25px;
-    max-width: 1000px; /* Increased from 600px */
+    max-width: 600px;
     margin: 0 auto; 
     border-radius: 20px; 
     margin-bottom: 100px;
+      
 }
 
 .contact-section h2 {
@@ -451,6 +452,9 @@ nav .mobile-nav {
     text-align: center;
 }
 
+.contact-section .group {
+    display: flex;
+}
 .contact-section .group .text {
     flex:3;
 }
