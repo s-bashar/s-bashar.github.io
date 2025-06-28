@@ -118,5 +118,4 @@ References:
 [8] http://www.ijeetc.com/v3/v3n1/13_A0141_(p.116-121).pdf <br>
 
 Project Team Members:
-Zoom Chow
-Kenneth O'Connor
+Zoom Chow | Kenneth O'Connor
