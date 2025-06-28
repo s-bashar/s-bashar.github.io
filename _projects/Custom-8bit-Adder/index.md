@@ -30,10 +30,9 @@ We choose to use dynamic logic over static complementary CMOS and other techniqu
 
 The Propagate-Generate Cell (PG Cell) is a crucial component among the three distinct cells employed in the construction of our 8-bit Kogge-Stone adder. This cell serves as a pre-processing stage, responsible for computing generate and propagate signals for each pair of input bits, denoted as A and B. The generation of these signals follows a well-defined logic, governed by the following equations:
 <br>
-pi = Ai ⊕ Bi
 p<sub>i</sub> = A<sub>i</sub> ⊕ B<sub>i</sub>  
 <br>
-gi = Ai . Bi
+g<sub>i</sub> = A<sub>i</sub> · B<sub>i</sub>
 
 {% include image-gallery.html images="PG_Cell.png" height="400" alt="PG_cell" %}
 
@@ -41,9 +40,8 @@ gi = Ai . Bi
 
 The Fundamental Carry Operator Cell (FCO Cell) serves as the second key component within our 8-bit Kogge-Stone adder. It can be conceptualized as a block comprising a group propagate and generate structure, or as a carry look-ahead network. These intermediate signals, denoted as group propagate and generate, play a pivotal role in the adder’s operation, and are determined by the following logic equations:
 <br>
-Pi:j = Pi:k+1 . Pk:j
-<br>
-Gi:j = Gi:k+1 ∨ (Pi:k+1 . Gk:j)
+P<sub>i:j</sub> = P<sub>i:k+1</sub> &middot; P<sub>k:j</sub><br>
+G<sub>i:j</sub> = G<sub>i:k+1</sub> &or; (P<sub>i:k+1</sub> &middot; G<sub>k:j</sub>)
 
 {% include image-gallery.html images="FCO_CELL.png" height="400" alt="FCO_Cell" %}
 
