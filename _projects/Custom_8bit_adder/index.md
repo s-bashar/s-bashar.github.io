@@ -13,7 +13,7 @@ skills:
 main-image: /full_adder_pic.png
 ---
 # Paper Link
-[View Project Paper ISSCC format](https://s-bashar.github.io/assets/files/CustomKSAdderProj.PDF)
+[View Project Paper ISSCC format](https://s-bashar.github.io/assets/files/CustomKSAdderProj.pdf)
 
 # Design choice 
 
@@ -117,4 +117,6 @@ References:
 [7] https://www.researchgate.net/publication/336825176_ Comparitive_Analysis_of_Brent-Kang_Kogge-Stone_Parallel-Prefix_Adder_for_Their_Area_Delay_Power_Consumption <br>
 [8] http://www.ijeetc.com/v3/v3n1/13_A0141_(p.116-121).pdf <br>
 
-
+Project Team Members:
+Zoom Chow
+Kenneth O'Connor
