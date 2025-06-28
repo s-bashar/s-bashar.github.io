@@ -1,13 +1,15 @@
 ---
 layout: post
 title: Custom 8bit Adder (KSA)
-description: The goal of this project was to show that a custom could out perform an automatic place and route(APR) ripple carry adder given a designer is familiar with the basic concepts of VLSI.(ECE 165, Digital Integrated Circuit Design, @UC San Diego Prof. Patrick Mercier)
+description: Project goal: Design a custom adder, using any topology, to demonstrate that a manually crafted implementation can outperform a ripple carry adder generated through automatic place and route (APR).
+(ECE 165: Digital Integrated Circuit Design, UC San Diego, Prof. Patrick Mercier)
 skills: 
-  - Cadence Virtuoso
-  - Transisent Simulations
+  - Physical and Transistor Level Layout Design (Cadence Virtuoso)
+  - Passing DRC and LVS
+  - Simulation and Verification
+  - Static CMOS, dynamic logic styles (domino, skewed inverters), and transmission gate logic
+  - Combinational and sequential logic design
   - Frequency optimization
-  - Combinational and Sequential Logic design
-  - Dynamic Loigc + Skewed Inverters + Dominio Logic
  
 
 main-image: /full_adder_pic.png
