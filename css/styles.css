@@ -488,6 +488,24 @@ nav .mobile-nav {
     transition: 0.1s
 }
 
+.contact-section .group {
+    display: flex;
+    flex-wrap: wrap; /* Add this for responsiveness */
+    gap: 2rem;        /* Add spacing between text and form */
+}
+
+.contact-section .group .text {
+    flex: 1 1 250px;
+    font-size: 14px;
+    color: var(--text-color);
+    max-width: 300px;
+}
+
+.contact-section .group form {
+    flex: 2 1 300px;
+}
+
+
 
 /* FOOTER */
 
