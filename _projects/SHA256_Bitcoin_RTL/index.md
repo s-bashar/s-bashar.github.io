@@ -12,7 +12,7 @@ main-image: /overview_cut.png
 ---
 
 ---
-# Project Repo
+# Project Repo:
 [View the source code on GitHub](https://github.com/s-bashar/ECE111-final-project)
 
 # SHA-256 Properties:
