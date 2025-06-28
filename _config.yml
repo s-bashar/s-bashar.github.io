@@ -18,7 +18,7 @@ description: >- # dont remove this line. this will ignore all new lines until th
  This portfolio highlights my coursework and three years of hands-on research focused on low-power, wireless, and battery-less sensor systems. I’ve worked on projects involving biomedical devices, FPGAs, and both analog and digital design. Through these experiences, I’ve developed strong prototyping skills and the ability to collaborate effectively with interdisciplinary teams. I'm currently seeking hardware engineering roles.
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/June16th_3.jpeg
-email: shayaunbashar1@gmail.com
+
 
 # Link your resume
 # You can place your resume in assets/resume/{resume file.pdf} or add external link such as pdf saved in google drive 
