@@ -49,7 +49,7 @@ G<sub>i:j</sub> = G<sub>i:k+1</sub> &or; (P<sub>i:k+1</sub> &middot; G<sub>k:j</
 
 The Post Processing Carry cell (PPC Cell) is one halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the carry out values given the P and G values from the prior FCO stage as well as the carry in. The signals can be illustrated with the following logic equation:
 <br>
-Ci = (Pi . Cin) ∨  Gi
+C<sub>i</sub> = (P<sub>i</sub> &middot; C<sub>in</sub>) &or; G<sub>i</sub>
 
 {% include image-gallery.html images="PPC.png" height="400" alt="PPC_cell" %}
 
@@ -57,7 +57,7 @@ Ci = (Pi . Cin) ∨  Gi
 
 The Post Processing Sum Cell (PPS Cell) is the second halve of the third and final distinct cell to complete the construction of our 8-bit Kogge-Stone adder. This cell serves as a part of the post-processing stage, responsible for the output of the sum values. The signals can be illustrated with the following logic equation:
 <br>
-Sumi = pi ⊕ Ci-1
+Sum<sub>i</sub> = p<sub>i</sub> &oplus; C<sub>i-1</sub>
 
 {% include image-gallery.html images="PPS.png" height="400" alt="PPS_Cell" %}
 
