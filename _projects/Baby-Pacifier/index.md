@@ -14,7 +14,9 @@ main-image: /overview_9.png
 
 # Awards:
 Best Poster Award in ECE at UC San Diego’s Research Expo 2025
+
 ---
+
 # Poster:
 {% include image-gallery.html images="PaciForce_Poster_vertical.png" height="1800" alt="Poster" %}
 
@@ -61,7 +63,7 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 
 
 {% include image-gallery.html images="old.png, new.png" height="200" alt="setup" %}
-#### On the left is an old fabrication process sensor with no response between 0-~2n which is the active force range of a new born, on the right is the improved fabrication process sensor with a linear line from 0-~4n with about 10 degrees phase change per 1N of force.
+#### On the left is an old fabrication process sensor with no response between 0-~2n which is the active force range of a new born, on the right is the improved fabrication process sensor with a linear force vs phase response from 0-~4n with about 10 degrees phase change per 1N of force.
 ---
 ## PCB Design 
 
