@@ -21,23 +21,23 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 {% include image-gallery.html images="PaciForce_Poster_vertical.png" height="1800" alt="Poster" %}
 
 ---
-# Contributions: 
 
+# Contributions: 
 
 ## Overview of Fabrication Challenges I Solved 
 
 | Problem                                                        | Solution                                                                                   |
 |----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Sensor-to-sensor operating frequency would vary dramatically | Decreased cavity size, allowing more of the sensor to be surrounded by the polymer to maintain a more uniform shape |
-| Sensor was not sensitive enough at baby level of forces (0–~2 N) | Changed material type to ecoflex-OO10 (this change is possible due to smaller cavity size = more material which allowed for a more flexible polymer(10A to OO10)|
-| Air bubbles forming on sensor mold                                    | Designed and 3D printed pacifier holder that was fitted with air tight seal for degassing chamber      |
+| Sensor-to-sensor operating frequency would vary dramatically   | Decreased cavity size, allowing more of the sensor to be surrounded by the polymer to maintain a more uniform shape |
+| Sensor was not sensitive enough at baby-level forces (0–~2 N)  | Changed material type to Ecoflex-OO10 (this change is possible due to smaller cavity size = more material, which allowed for a more flexible polymer (10A to OO10)) |
+| Air bubbles forming on sensor mold                             | Designed and 3D printed pacifier holder that was fitted with an airtight seal for degassing chamber |
 | Air bubbles between the mold and pacifier (bad adhesion)       | Use isopropyl alcohol to wipe off residual “man” spray from mold fab step                  |
-| No current fabrication that supports vacuum pressure sensing for our sensors     | Interfaced feeding tube with current force pacifier sensor to create a dual pressure and vacuum sensor                 |
+| No current fabrication that supports vacuum pressure sensing for our sensors | Interfaced feeding tube with current force pacifier sensor to create a dual pressure and vacuum sensor |
 
 ## Test setup
 
 {% include image-gallery.html images="setup.png" height="600" alt="setup" %}
-##### With this setup I was able to collect and analyze force vs phase data through a host PC using Python scripting. With this data I was able to improve sensor quality. 
+##### With this setup I was able to collect and analyze force vs. phase data through a host PC using Python scripting. With this data, I was able to improve sensor quality. 
 
 ## Improved Fabrication of Sensor
 
@@ -49,7 +49,7 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 
 - **Testing and validation**:
   - Conducted **vacuum pressure performance testing** to benchmark the sensor against industry-standard pacifier sensors  
-    → Validated dual-functionality for both force and vacuum pressure sensing
+    → Validated dual functionality for both force and vacuum pressure sensing
   - Performed **sensor testing and data analysis** across multiple batches to identify fabrication improvements affecting yield, consistency, and sensitivity
 
 - **Automation and data processing tools**:
@@ -62,13 +62,15 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
     - Automatically identify the **optimal operating frequency** (maximizing phase change)
     - Ensure linearity and control for differential magnitude > −5 dB 
 
-
 {% include image-gallery.html images="old.png, new.png" height="200" alt="setup" %}
-#### On the left is an old fabrication process sensor with no response between 0-~2n which is the active force range of a new born, on the right is the improved fabrication process sensor with a linear force vs phase response from 0-~4n with about 10 degrees phase change per 1N of force.
+#### On the left is an old fabrication process sensor with no response between 0–~2 N, which is the active force range of a newborn. On the right is the improved fabrication process sensor with a linear force vs. phase response from 0–~4 N, with about 10 degrees phase change per 1 N of force.
+
 ---
+
 ## PCB Design 
 
-Tested transmission line(TL) flex PCB in Ansys HFSS and Designed in Altium. TL was designed for 900MHz. 
+Tested transmission line (TL) flex PCB in Ansys HFSS and designed in Altium. TL was designed for 900 MHz. 
+
 
 
 
