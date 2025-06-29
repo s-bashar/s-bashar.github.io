@@ -12,5 +12,6 @@ skills:
 
 main-image: /overview_9.png
 ---
-
 {% include image-gallery.html images="PaciForce_Poster_vertical.png" height="400" alt="Poster" %}
+{% include image-gallery.html images="PaciForce_Poster_vertical.png" height="400" alt="Poster" %}
+{% include image-gallery.html images="PaciForce_Poster_vertical.PNG" height="400" alt="Poster" %}
