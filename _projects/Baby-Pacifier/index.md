@@ -30,8 +30,9 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 |----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Sensor-to-sensor operating frequency would vary dramatically | Decreased cavity size, allowing more of the sensor to be surrounded by the polymer to maintain a more uniform shape |
 | Sensor was not sensitive enough at baby level of forces (0–~2 N) | Changed material type to ecoflex-OO10 (this change is possible due to smaller cavity size = more material which allowed for a more flexible polymer(10A to OO10)|
-| Air bubbles forming on mold                                    | Designed and 3D printed pacifier holder that was fitted with air tight seal for degassing chamber      |
+| Air bubbles forming on sensor mold                                    | Designed and 3D printed pacifier holder that was fitted with air tight seal for degassing chamber      |
 | Air bubbles between the mold and pacifier (bad adhesion)       | Use isopropyl alcohol to wipe off residual “man” spray from mold fab step                  |
+| No current fabrication that supports vacuum pressure sensing for our sensors     | Interfaced feeding tube with current force pacifier sensor to create a dual pressure and vacuum sensor                 |
 
 ## Test setup
 
