@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Custom 8bit Adder (KSA)
-description: Project goal: Design a custom adder, using any topology, to demonstrate that a manually crafted implementation can outperform a ripple carry adder generated through automatic place and route (APR).
-(ECE 165: Digital Integrated Circuit Design, UC San Diego, Prof. Patrick Mercier)
+description: Project goal Design a custom adder, using any topology, to demonstrate that a manually crafted implementation can outperform a ripple carry adder generated through automatic place and route (APR). (ECE 165: Digital Integrated Circuit Design, UC San Diego, Prof. Patrick Mercier)
 skills: 
   - Physical and Transistor Level Layout Design (Cadence Virtuoso)
   - Passing DRC and LVS
@@ -13,16 +12,16 @@ skills:
  
 
 main-image: /full_adder_pic.png
+
 ---
+
 # Paper Link
 [View Project Paper ISSCC format](https://s-bashar.github.io/assets/files/CustomKSAdderProj.pdf)
 
+---
 # Design choice: 
 
-To overcome the limitations of the RCA, CLA, and CSA, the parallel prefix adder (PPA) architecture has emerged as a promising solution. The PPA architecture addresses the challenge of carry propagation delays by utilizing a tree-like structure with multiple levels of carry computations. By leveraging parallel processing of carry signals, the PPA significantly reduces the critical path delay and enhances overall speed performance. This innovative architecture enables efficient carry signal propagation through various paths, allowing for faster addition of multi-bit numbers. The PPA offers improved performance and reduced latency compared to traditional adder architectures, making it an attractive choice for high-speed arithmetic operations. 
-Two noteworthy variations of traditional PPA architecture include the Brent-Kung adder and the Kogge-Stone adder. The Brent-Kung adder offers improved power efficiency because of its lowest area delay with large number of input bits. However, the large number of levels in this architecture reduces its operational speed [7]. The Kogge-Stone adder has minimal fan-out and logic depth. Thus, the Kogge-Stone adder architecture becomes one of the fastest adders that is favored in electronic technology. However, as a tradeoff the KSA has a larger area.
-
-We choose to use dynamic logic over static complementary CMOS and other techniques since it offers us the chance to use less transistors, it requires N+2 transistors while static CMOS uses 2N and pseudo-NMOS uses N+1. Additional benefits compared are the smaller load capacitance, no static power, non-ratioed logic, it is also much faster since tpLH = 0 and tpHL is small and in pre-charge time is small. In general, about 1.3-2x faster than static CMOS. However, the downsides are high power consumption as well as noise leakage, charge sharing and inputs not being able to go from 1-0. We can still combat some of the issues by using a keeper transistor, extra pre-charge transistor and domino logic which we will get into. This influenced our design choice since we knew that we wanted to optimize for speed.
+To address the limitations of the ripple carry, carry lookahead, and carry save adders, we selected the parallel prefix adder (PPA) architecture. PPA reduces carry propagation delay by using a tree-like structure that computes carries in parallel, significantly shortening the critical path and improving speed. <br> We explored two well-known PPA variants: the Brent-Kung and Kogge-Stone adders. The Brent-Kung adder is more power-efficient and compact, making it well-suited for large bit-widths. However, its deeper logic tree limits speed [7]. The Kogge-Stone adder is one of the fastest architectures due to minimal logic depth and fan-out, but this comes at the cost of increased area. <br> For logic style, we chose dynamic logic over static CMOS and pseudo-NMOS. Dynamic logic uses fewer transistors (N+2 vs. 2N for static CMOS), offers smaller load capacitance, no static power, and faster switching—typically 1.3–2× faster. However, it also introduces challenges such as higher power consumption, charge sharing, and noise sensitivity. To mitigate these, we included keeper transistors, additional precharge control, and used domino logic. Since our design goal was to optimize for speed, these tradeoffs were acceptable and aligned with our performance priorities.
 
 ---
 
