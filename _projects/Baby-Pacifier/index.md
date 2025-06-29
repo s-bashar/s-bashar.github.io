@@ -60,7 +60,7 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
     - Ensure linearity and control for differential magnitude > −5 dB 
 
 
-{% include image-gallery.html images="old.png,new.png" height="1800" alt="setup" %}
+{% include image-gallery.html images="old.png, new.png" height="1800" alt="setup" %}
 #### On the left is an old fabrication process sensor with no response between 0-~2n which is the active force range of a new born, on the right is the improved fabrication process sensor with a linear line from 0-~4n with about 10 degrees phase change per 1N of force.
 ---
 ## PCB Design 
