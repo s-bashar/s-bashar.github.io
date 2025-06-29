@@ -21,7 +21,21 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 
 # Contributions: 
 
-### Improved Fabrication of Sensor
+
+## Overview of problems and solution 
+
+| Problem                                                        | Solution                                                                                   |
+|----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Air bubbles forming on mold                                    | Created a pacifier mold that fits with degasser                                            |
+| Sensor-to-sensor operating frequency would vary dramatically | Decreased cavity size, allowing more of the sensor to be surrounded by polymer to maintain a more uniform shape |
+| Air bubbles between the mold and pacifier (bad adhesion)       | Use isopropyl alcohol to wipe off residual “man” spray from mold fab step                  |
+| Sensor was not sensitive enough for baby level of forces (0–~2 N) | Changed material type to eco flex (this change is possible due to smaller cavity size)     |
+
+## Test setup
+
+{% include image-gallery.html images="setup.png" height="1800" alt="setup" %}
+##### With this setup I was able to collect and analyze force vs phase data through a host PC using Python scripting. With this data I was abple to..
+## Improved Fabrication of Sensor
 
 - **Enhanced performance and manufacturability**:
   - Increased sensor batch yield by **80%** by improving polymer adhesion techniques and eliminating air bubbles
@@ -35,13 +49,19 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
   - Performed **sensor testing and data analysis** across multiple batches to identify fabrication improvements affecting yield, consistency, and sensitivity
 
 - **Automation and data processing tools**:
-  - Developed a **MATLAB script** to:
+  - Developed a **Python script** to:
     - Communicate with a VNA, Arduino, and linear actuator
     - Apply step forces and collect **S11 parameter data**
     - Generate **phase vs. force** graphs for performance analysis
   - Created an algorithm to:
     - Automatically identify the **optimal operating frequency** (maximizing phase change)
-    - Ensure linearity and control for differential magnitude > −5 dB
+    - Ensure linearity and control for differential magnitude > −5 dB 
+
+
+
+
+
+
 
 
 
