@@ -23,7 +23,7 @@ main-image: /full_adder_pic.png
 ---
 # Design choice: 
 To address the limitations of the ripple carry, carry lookahead, and carry save adders, we selected the parallel prefix adder (PPA) architecture. PPA reduces carry propagation delay by using a tree-like structure that computes carries in parallel, significantly shortening the critical path and improving speed. <br> <br>
-We explored two well-known PPA variants, the Brent-Kung and Kogge-Stone adders. The Brent-Kung adder is more power-efficient and compact, making it well-suited for large bit-widths. However, its deeper logic tree limits speed [7]. The Kogge-Stone adder is one of the fastest architectures due to minimal logic depth and fan-out, but this comes at the cost of increased area. <br> 
+We explored two well-known PPA variants, the Brent-Kung and Kogge-Stone adders. The Brent-Kung adder is more power-efficient and compact, making it well-suited for large bit-widths. However, its deeper logic tree limits speed [7]. The Kogge-Stone adder is one of the fastest architectures due to minimal logic depth and fan-out, but this comes at the cost of increased area. <br> <br>
 For logic style, we chose dynamic logic over static CMOS and pseudo-NMOS. Dynamic logic uses fewer transistors (N+2 vs. 2N for static CMOS), offers smaller load capacitance, no static power, and faster switching—typically 1.3–2× faster. However, it also introduces challenges such as higher power consumption, charge sharing, and noise sensitivity. To mitigate these, we included keeper transistors, additional precharge control, and used domino logic. Since our design goal was to optimize for speed, these tradeoffs were acceptable and aligned with our performance priorities.
 
 ---
