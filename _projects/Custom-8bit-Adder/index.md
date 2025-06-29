@@ -10,7 +10,9 @@ skills:
   - Combinational and sequential logic design
   - Frequency optimization
  
+
 main-image: /full_adder_pic.png
+
 ---
 
 # Paper Link
