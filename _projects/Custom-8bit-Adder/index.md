@@ -40,7 +40,7 @@ g<sub>i</sub> = A<sub>i</sub> · B<sub>i</sub>
 
 {% include image-gallery.html images="PG_Cell.png" height="400" alt="PG_cell" %}
 
-## Fundamental Carry Operator: 
+## Fundamental Carry Operator Cell: 
 
 The Fundamental Carry Operator Cell (FCO Cell) serves as the second key component within our 8-bit Kogge-Stone adder. It can be conceptualized as a block comprising a group propagate and generate structure, or as a carry look-ahead network. These intermediate signals, denoted as group propagate and generate, play a pivotal role in the adder’s operation, and are determined by the following logic equations:
 <br>
