@@ -22,7 +22,7 @@ profile_image: ./assets/images/profile-image/June16th_3.jpeg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume file.pdf} or add external link such as pdf saved in google drive 
-resume-url: /assets/resume/ShayaunBasharResume.pdf
+resume-url: /assets/resume/ShayaunBasharResume_Rev.pdf
 
 # Set up external links - this will show up as small icons next to your name.
 
@@ -34,7 +34,7 @@ external-links:    # input only your own url slug. The icons with missing entrie
 skills:
   - category: Software
     tools:
-    - Altium Designed (rigid/flex PCB Design)
+    - Altium Designer (rigid/flex PCB Design)
     - Ansys HFSS
     - Cadence Virtuoso
     - Intel Quartus Prime
@@ -42,7 +42,7 @@ skills:
   - category: Coding Languages 
     tools:
     - C++
-    - Systen Verilog 
+    - System Verilog 
     - Python
     - Matlab
     - Arduino 
