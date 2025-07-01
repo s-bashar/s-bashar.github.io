@@ -2,7 +2,7 @@
 layout: post
 title: Custom 8bit Adder (KSA)
 description: 
-    Project goal was to design a custom adder, using any topology, to demonstrate that a manually crafted implementation can outperform a ripple carry adder generated through automatic place and route (APR). (ECE 165 Digital Integrated Circuit Design, UC San Diego, Prof. Patrick Mercier)
+    Project goal was to design a custom adder, using any topology, to demonstrate that a manually crafted implementation can outperform a ripple carry adder generated through automatic place and route (APR). 
 skills: 
   - Physical and Transistor Level Layout Design (Cadence Virtuoso)
   - Passing DRC and LVS
@@ -121,4 +121,4 @@ References:
 [8] http://www.ijeetc.com/v3/v3n1/13_A0141_(p.116-121).pdf <br>
 
 Project Team Members:
-Zoom Chow | Kenneth O'Connor
+Zoom Chow | Kenneth O'Connor | (ECE 165 Digital Integrated Circuit Design, UC San Diego, Prof. Patrick Mercier)
