@@ -2,7 +2,7 @@
 layout: post
 title: Force Sticker 
 description:  
-    We show that the force information can be piggybacked over existing RFIDs, with no additional power and no requirement for any interfacing electronics, by simply interfacing a force-sensitive capacitor to the RFID. Hence, the designed force-stickers consist of a thin parallel-plate capacitor, smaller than a rice grain, that deforms under applied force and is interfaced between the RFID squiggly antenna and the RFID IC. But how does the force information from the capacitor get communicated via the RFID IC, without requiring any more electronics or power? The secret sauce lies in the capacitor design—choosing the correct polymer and dimensions!
+    We show that the force information can be piggybacked over existing RFIDs, with no additional power and no requirement for any interfacing electronics, by simply interfacing a force-sensitive capacitor to the RFID. 
 skills: 
   - Rigid/Flex PCB Design (Altium Designer)
   - DFT
@@ -20,9 +20,12 @@ Mobile, Wearable, and Ubiquitous Tech. Paper: [ACM IMWUT '23](https://dl.acm.org
 Robotics and Automation Paper: [IEEE RA-L, IROS '22](https://ieeexplore.ieee.org/abstract/document/9801613) | [View The Paper Here!](https://s-bashar.github.io/assets/files/Design_and_Evaluation_of_a_Miniaturized_Force_Sensor_Based_on_Wave_Backscattering.pdf)
 
 # Design of ForceSticker:
+Hence, 
 
 WiForceSticker creates a new class of sticker-like force sensors that are capable of wireless readout without a battery, enabling in-vivo and ubiquitous 
-weight sensing applications. This is made possible by piggybacking analog sensor data onto a digitally identified RFID link.
+weight sensing applications. The designed force-stickers consist of a thin parallel-plate capacitor, smaller than a rice grain, that deforms under applied force and is interfaced between the RFID squiggly antenna and the RFID IC. 
+But how does the force information from the capacitor get communicated via the RFID IC, without requiring any more electronics or power? 
+The secret sauce lies in the capacitor design—choosing the correct polymer and dimensions!
 
 {% include image-gallery.html images="design2.png" height="400" alt="Design2" %}
 ##### When a capacitor is interfaced to an antenna, it shows a non-linear relationship between frequency, capacitance, and phase change. We find that when the capacitor is designed in the 1–10 pF range, the phase change effect is sensitive to the RFID frequency of 900 MHz.
