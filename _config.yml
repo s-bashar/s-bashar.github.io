@@ -34,7 +34,7 @@ external-links:    # input only your own url slug. The icons with missing entrie
 skills:
   - category: Software
     tools:
-    - Altium Designer (rigid/flex PCB Design)
+    - Altium Designer (Rigid/Flex PCB Design)
     - Ansys HFSS
     - Cadence Virtuoso
     - Intel Quartus Prime
@@ -57,7 +57,7 @@ skills:
   - category: Courses 
     tools:
     - Digital Integrated Circuit Design
-    - Introduction to active Circuit Design 
+    - Introduction to Active Circuit Design 
     - Advanced Digital Design Project
     - Software foundation I & II
     - Programming for Data Analysis
