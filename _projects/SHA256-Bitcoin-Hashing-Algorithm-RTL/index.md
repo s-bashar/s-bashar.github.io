@@ -2,7 +2,7 @@
 layout: post
 title: SHA256+Bitcoin Hashing RTL Model System Verilog Implementation 
 description:  
-    We implemented RTL models of the SHA-256 and Bitcoin hashing algorithms in SystemVerilog as part of an exploration into hardware design trade-offs. This allowed us to gain insight into real-world architectural trade-offs in FPGA design and how they apply to compute-intensive workloads like cryptographic hashing. 
+    Implemented RTL models of the SHA-256 and Bitcoin hashing algorithms in SystemVerilog as part of an exploration into hardware design trade-offs. This allowed us to gain insight into real-world architectural trade-offs in FPGA design. 
 skills: 
   - Intel Quartus Prime
   - SystemVerilog
