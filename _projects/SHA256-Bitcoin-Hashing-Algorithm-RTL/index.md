@@ -2,7 +2,7 @@
 layout: post
 title: SHA256+Bitcoin Hashing RTL Model System Verilog Implementation 
 description:  
-    We implemented RTL models of the SHA-256 and Bitcoin hashing algorithms in SystemVerilog as part of an exploration into hardware design trade-offs. The goal was to compare serial and parallel implementations and understand how design choices impact key metrics like area, cycle count, and maximum operating frequency (fmax). By optimizing for each of these variables individually, we observed how improvements in one metric often came at the cost of others. This allowed us to gain insight into real-world architectural trade-offs in ASIC/FPGA design and how they apply to compute-intensive workloads like cryptographic hashing. (ECE111, Advanced Digital Design Course Project, @UC San Diego Prof. Farinaz Koushanfar) 
+    We implemented RTL models of the SHA-256 and Bitcoin hashing algorithms in SystemVerilog as part of an exploration into hardware design trade-offs. The goal was to compare serial and parallel implementations and understand how design choices impact key metrics. This allowed us to gain insight into real-world architectural trade-offs in FPGA design and how they apply to compute-intensive workloads like cryptographic hashing. 
 skills: 
   - Intel Quartus Prime
   - SystemVerilog
@@ -119,3 +119,7 @@ Also optimized each `for` and `if` statement to avoid resource waste.
 
 Parallel version completed 16 hashes in 241 cycles, or ~15.1 cycles per hash, compared to 2224 cycles per hash in serial.  
 That’s about a **147× throughput improvement**, which corresponds to a **9.2× speed improvement**—but comes at the cost of area.
+
+## Project Member:
+
+Henry Pritchard | (ECE111, Advanced Digital Design Course Project, @UC San Diego Prof. Farinaz Koushanfar) 
