@@ -6,10 +6,9 @@ description:
 skills: 
   - Physical and Transistor Level Layout Design (Cadence Virtuoso)
   - Passing DRC and LVS
-  - Simulation and Verification
-  - Static CMOS, dynamic logic styles (domino, skewed inverters), and transmission gate logic
-  - Combinational and sequential logic design
-  - Frequency optimization
+  - Static CMOS, dynamic logic styles and transmission gate logic
+  - Combinational and Sequential Logic Design
+
  
 
 main-image: /full_adder_pic.png

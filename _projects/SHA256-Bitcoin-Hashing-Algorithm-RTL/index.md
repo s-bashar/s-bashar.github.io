@@ -7,6 +7,7 @@ skills:
   - Intel Quartus Prime
   - SystemVerilog
   - Parallel Computing 
+  - Model Sim
 
 main-image: /overview_cut.png
 ---
