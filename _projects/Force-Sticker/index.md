@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Force Sticker 
-description:  
-WiForceSticker creates a new class of sticker-like force sensors that are capable of wireless readout without a battery, enabling in-vivo and ubiquitous 
-weight sensing applications. 
+description:  WiForceSticker creates a new class of sticker-like force sensors that are capable of wireless readout without a battery, enabling in-vivo and ubiquitous weight sensing applications. 
     
 skills: 
   - Rigid/Flex PCB Design (Altium Designer)
