@@ -32,12 +32,12 @@ The correct handler is tasked with handling the job and passing on a string to a
 ## Low level walk through of abstraction layers and design choices:
 
 In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low mental effort to understand. 
-### App Controller: 
+### **App Controller:** 
 
 The first layer is our "App Controller" class, single responbility it to select the correct proccessor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
 App controller calls on a Tokizer utility class to help break down the input stream. 
 
-### Processors:
+### **Processors:** 
 
 The next abstraction layer is the processor classes, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "INsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
 Each processor single task is to setup the chain of responsibility for each type of query (i.e. Basic Query, DataBase Query, Table Query, or etc...). <br>
