@@ -7,8 +7,9 @@ skills:
   - C++
   - OOP
   - Patterns/Idioms/OCF
+  - SQL Database
 
-main-image: /SQL_Overview.png
+main-image: /SQL_logo.png
 ---
 
 ---
