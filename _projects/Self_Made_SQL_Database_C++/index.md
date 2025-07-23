@@ -2,7 +2,7 @@
 layout: post
 title: Self_Made_SQL_Database_C++ 
 description:  
-	Designed an SQL database system in C++, leveraging object-oriented design principles and multiple software design patterns and idioms. Implemented abstraction layers using patterns such as Chain of Responsibility, Decorator, Adapter, Iterator, and Creation patterns. Applied polymorphism, singletons, pure virtual classes, and event listeners to enforce modularity and extensibility. Followed Object Construction Framework (OCF) best practices to enhance maintainability and scalability.	
+    Designed a SQL database system in C++, leveraging object-oriented design principles and multiple software design patterns and idioms. Implemented abstraction layers using patterns such as Chain of Responsibility, Decorator, Adapter, Iterator, and Creation patterns. Applied polymorphism, singletons, pure virtual classes, and event listeners to enforce modularity and extensibility. Followed Object Construction Framework (OCF) best practices to enhance maintainability and scalability.	
 skills: 
   - C++
   - OOP
