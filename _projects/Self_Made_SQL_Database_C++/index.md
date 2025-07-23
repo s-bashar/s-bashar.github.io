@@ -20,5 +20,5 @@ main-image: /SQL_logo.png
 
 I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how they work,patterns and idioms, and abstraction layers. 
 
-{% include image-gallery.html images="SQL_Overview.png" height="400" alt="DB Overview" %}
+{% include image-gallery.html images="SQL_Overview.png" height="800" alt="DB Overview" %}
 
