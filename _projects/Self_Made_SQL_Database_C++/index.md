@@ -31,7 +31,7 @@ The correct handler is tasked with handling the job and passing on a string to a
 
 ## Low level walk through of abstraction layers and design choices:
 
-In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low mental effort to understand. 
+In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low cognitive effort. 
 ### **App Controller:** 
 
 The first layer is our "App Controller" class, single responbility it to select the correct proccessor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
@@ -42,7 +42,7 @@ App controller calls on a Tokizer utility class to help break down the input str
 The next abstraction layer is the processor classes, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "INsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
 Each processor single task is to setup the chain of responsibility for each type of query (i.e. Basic Query, DataBase Query, Table Query, or etc...). <br>
 
-This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low mental effort to understand**.
+This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
 **1. Readability**  
 By breaking up the processors, each class handles a focused, well-defined task and stays around ~30 lines of code. This makes each processor easy to read and understand in isolation, without requiring a full understanding of the entire system.
@@ -58,10 +58,12 @@ Instead, by **pre-processing the tokens** to select the appropriate processor ea
 
 This makes the system easier to evolve and maintain over time.
 
-**3. Low Mental Effort (Cognitive Simplicity)**  
+**3. Low Cognitive Effort **  
 Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
 
 ---
 
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
+
+### **Handlers: ** 
