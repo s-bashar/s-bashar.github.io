@@ -16,3 +16,9 @@ main-image: /SQL_logo.png
 # Project Repo:
 [View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5)
 
+# Project Overview:
+
+I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how they work,patterns and idioms, and abstraction layers. 
+
+{% include image-gallery.html images="SQL_Overview.png" height="400" alt="DB Overview" %}
+
