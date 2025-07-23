@@ -22,3 +22,10 @@ I will be showing a high level block explanaiton of how this database operates a
 
 {% include image-gallery.html images="SQL_Overview.png" height="800" alt="DB Overview" %}
 
+High level walk through: 
+
+We receive a query and hand it to our app controller obj, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer obj parses the isteam and breaks down the input into a vector of tokens that our code can work with. 
+App controller's last task is to find the right processor to delgate the rest of the work to, does so by parsing the tokens. A processors job is to setup the chain of responsibility for a particular type of query (basic,table, database, etc..). 
+Chain of responbility starts with one handler parsing the tokens and determining if it can handle the input, if it can't handle the input, the handler passes down the responbility of handing to the next handler and so on till there are no more handlers or a handler is able to handle input. 
+The correct handler is tasked with handling the job and passing on a string to a viewer listener obj.
+
