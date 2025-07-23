@@ -8,12 +8,12 @@ skills:
   - OOP
   - Patterns/Idioms/OCF
 
-main-image: /SQL_Overview.png
+main-image: /SQL_Overview.PNG
 ---
 
 ---
 # Project Repo:
-[View the source code on GitHub](https://github.com/s-bashar/ECE111-final-project)
+[View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5)
 
 # SHA-256 Properties:
 
