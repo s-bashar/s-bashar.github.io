@@ -18,7 +18,7 @@ main-image: /SQL_logo.png
 
 # Project Overview:
 
-I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how they work,patterns and idioms, and abstraction layers. 
+I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how each block works and what patterns/idioms, and abstraction layers are used and why. 
 
 {% include image-gallery.html images="SQL_Overview.png" height="800" alt="DB Overview" %}
 
