@@ -71,4 +71,12 @@ This design methodology improves performance, modularity, and clarity. It aligns
 Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for in memory saves within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
 All handlers are derived from a pure virtual base class, this allows us to achieve run time polymoriphsm which keeps our code clean, flexible, and less error prone.
 
-{% include image-gallery.html images="default_handler.png" height="800" alt="default_handler" %}
+{% include image-gallery.html images="default_handler.png" height="1000" alt="default_handler" %}
+
+### **ViewGenerator:**
+
+The ViewListener is designed to respond to signals from command handlers, receiving a string that encodes the relevant context (e.g., a query or view type). Upon receiving the signal, it instantiates and renders the appropriate view.
+
+This design cleanly decouples execution logic from view generation, improving modularity and maintainability. It also reduces code duplication by leveraging a shared interface: View serves as the base class for specific views like TableView and FolderView.
+
+For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
