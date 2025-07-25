@@ -29,7 +29,7 @@ App controller's last task is to find the right processor to delgate the rest of
 Chain of responbility starts with one handler parsing the tokens and determining if it can handle the input, if it can't handle the input, the handler passes down the responbility of handing to the next handler and so on till there are no more handlers or a handler is able to handle input. 
 The correct handler is tasked with handling the job and passing on a string to a viewer listener obj.
 
-## Low level walk through of abstraction layers and design choices:
+## Low level walk through:
 
 In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low cognitive effort. 
 ### **App Controller:** 
@@ -40,7 +40,7 @@ App controller calls on a Tokizer utility class to help break down the input str
 ### **Processors:** 
 
 The next abstraction layer is the processor classes, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "INsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
-Each processor single task is to setup the chain of responsibility for each type of query (i.e. Basic Query, DataBase Query, Table Query, or etc...). <br>
+Each processor single task is to setup the chain of responsibility for each type of query (i.g. Basic Query, DataBase Query, Table Query, or etc...). <br>
 
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
@@ -68,10 +68,12 @@ This design methodology improves performance, modularity, and clarity. It aligns
 
 ### **Handlers:** 
 
-Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for in memory saves within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
+Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
 All handlers are derived from a pure virtual base class, this allows us to achieve run time polymoriphsm which keeps our code clean, flexible, and less error prone.
 
 {% include image-gallery.html images="default_handler_cut.png" height="600" alt="default_handler" %}
+
+
 
 ### **ViewGenerator:**
 
@@ -80,3 +82,19 @@ The ViewListener is designed to respond to signals from command handlers, receiv
 This design cleanly decouples execution logic from view generation, improving modularity and maintainability. It also reduces code duplication by leveraging a shared interface: View serves as the base class for specific views like TableView and FolderView.
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
+
+## Core Data Structures and Storage Components 
+
+## **Database Layer:**
+
+Database has two modes, if given a file path it will the construcotr will invoke the Storage class to load the database from disk storage to memory if its valid. The other mode the constructor will invoke the Storage class for a write to setup table of context block on disk. 
+<br>
+Database object responbsility is to maintain the information/location of all database schemas in memory and on disk. *A schema is a blueprint of how the table information is defined, this is given to us when someone uses the "create table x (schema info)" query.)*
+<br>
+Below is how the database class is defined, we use a map called "TOC_MAP", it mapes a string to a deque iterator. The string being the schema/table name and the deque iterator. We use a deque to maintain the order of blocks for a particular table. Block 0 is the table of context of the database and the other blocks are schema information of row blocks. Will talk more about the storage when I get to the Storage and Block classes.  
+{% include image-gallery.html images="db_defined.png" height="600" alt="db_defined" %}
+## Future Work / Weaknesses 
+
+I think some weaknesses of this database is passing large objects into utility fuctions, could increase speed by passing only whats necessary. There is some poor handling of circulary dependcies with the includes, need to seperate better so build time is quicker. 
+
+
