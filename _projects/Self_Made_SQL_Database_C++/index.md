@@ -91,7 +91,8 @@ Database has two modes, if given a file path the construcotr will invoke the Sto
 Database object responbsility is to maintain the information/location of all database schemas in memory and on disk. 
 <br>*A schema is a blueprint of how the table information is defined, this is given to us when someone uses the "create table x (schema info)" query.* <br>
 <br>Below is how the database class is defined, we use a map called "TOC_MAP", it mapes a string to a deque iterator. The string being the schema/table. We use a deque to maintain the order of blocks for a particular table. Block 0 is the table of contents of the database and the other blocks are schema information of row blocks. Will talk more about the storage when I get to the Storage and Block classes.  
-{% include image-gallery.html images="db_defined.png" height="600" alt="db_defined" %}
+
+{% include image-gallery.html images="db_defined_cut.png" height="400" alt="db class hpp" %}
 
 ### **Schema:**
 
