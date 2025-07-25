@@ -89,9 +89,12 @@ For example, TableView is built to be data-driven — it operates solely on a co
 
 Database has two modes, if given a file path it will the construcotr will invoke the Storage class to load the database from disk storage to memory if its valid. The other mode the constructor will invoke the Storage class for a write to setup table of context block on disk. <br>
 Database object responbsility is to maintain the information/location of all database schemas in memory and on disk. 
-*A schema is a blueprint of how the table information is defined, this is given to us when someone uses the "create table x (schema info)" query.* <br>
-<br>Below is how the database class is defined, we use a map called "TOC_MAP", it mapes a string to a deque iterator. The string being the schema/table name and the deque iterator. We use a deque to maintain the order of blocks for a particular table. Block 0 is the table of context of the database and the other blocks are schema information of row blocks. Will talk more about the storage when I get to the Storage and Block classes.  
+<br>*A schema is a blueprint of how the table information is defined, this is given to us when someone uses the "create table x (schema info)" query.* <br>
+<br>Below is how the database class is defined, we use a map called "TOC_MAP", it mapes a string to a deque iterator. The string being the schema/table. We use a deque to maintain the order of blocks for a particular table. Block 0 is the table of contents of the database and the other blocks are schema information of row blocks. Will talk more about the storage when I get to the Storage and Block classes.  
 {% include image-gallery.html images="db_defined.png" height="600" alt="db_defined" %}
+
+
+
 ## Future Work / Weaknesses 
 
 I think some weaknesses of this database is passing large objects into utility fuctions, could increase speed by passing only whats necessary. There is some poor handling of circulary dependcies with the includes, need to seperate better so build time is quicker. 
