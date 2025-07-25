@@ -83,15 +83,25 @@ This design cleanly decouples execution logic from view generation, improving mo
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
 
-## Core Data Structures and Storage Components 
+## Core Data Structures
 
-## **Database Layer:**
+### **Database Layer:**
 
-Database has two modes, if given a file path it will the construcotr will invoke the Storage class to load the database from disk storage to memory if its valid. The other mode the constructor will invoke the Storage class for a write to setup table of context block on disk. <br>
+Database has two modes, if given a file path the construcotr will invoke the Storage class to load the database from disk storage to memory if its valid. The other mode the constructor invokes the Storage class for a write to setup table of context block on disk. <br>
 Database object responbsility is to maintain the information/location of all database schemas in memory and on disk. 
 <br>*A schema is a blueprint of how the table information is defined, this is given to us when someone uses the "create table x (schema info)" query.* <br>
 <br>Below is how the database class is defined, we use a map called "TOC_MAP", it mapes a string to a deque iterator. The string being the schema/table. We use a deque to maintain the order of blocks for a particular table. Block 0 is the table of contents of the database and the other blocks are schema information of row blocks. Will talk more about the storage when I get to the Storage and Block classes.  
 {% include image-gallery.html images="db_defined.png" height="600" alt="db_defined" %}
+
+### **Schema:**
+
+### **Attributes:**
+
+### **Rows:**
+
+
+
+## Storage Components
 
 
 
