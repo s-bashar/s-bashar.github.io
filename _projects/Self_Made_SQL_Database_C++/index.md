@@ -96,15 +96,23 @@ Database object responbsility is to maintain the information/location of all dat
 
 ### **Schema:**
 
+The Schema class is an in-memory representation of a table defintion. It's a container class, that contains one-or-more Attributes (we will go into attributes next). Here is an example query: <br>
+{% include image-gallery.html images="schema_query.png" height="400" alt="schema_query" %}
+
 ### **Attributes:**
+An Attribute represents a single "field" in a database table defintion (Schema). In the table defintion shown above, task_id is an example Attribute. Attibute stores information like field_name,field_type,field_length, auto_incrementing (bool), primary_key(bool), and nullable(bool). <br>
+
 
 ### **Rows:**
 
-
+Row class is responsible for holding user data for a given row. 
 
 ## Storage Components
 
+I talked about Schema Attributes and Rows above. Schema contains attributes and rows contain data modeled from those attributes. Each of these classes inherit from a "Storable" class. 
+This storable class contains virtual store and load functions. 
 
+**Draw how storage works.**
 
 ## Future Work / Weaknesses 
 
