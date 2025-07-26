@@ -110,7 +110,7 @@ Row class is responsible for holding user data for a given row.
 ## Storage Components
 
 I talked about Schema Attributes and Rows above. Schema contains attributes and rows contain data modeled from those attributes. Each of these classes inherit from a "Storable" class. 
-This storable class contains virtual store and load functions. 
+This storable class contains virtual store and load functions. Using polymorphism here makes it easy and scalable to store what we want to disk. 
 
 **Draw how storage works.**
 
