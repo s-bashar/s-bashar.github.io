@@ -109,13 +109,36 @@ Row class is responsible for holding user data for a given row.
 
 ## Storage Components
 
-I talked about Schema Attributes and Rows above. Schema contains attributes and rows contain data modeled from those attributes. Each of these classes inherit from a "Storable" class. 
-This storable class contains virtual store and load functions. Using polymorphism here makes it easy and scalable to store what we want to disk. 
+## High Level walk through of Storage: 
 
-**Draw how storage works.**
+For Saving: 
+
+It begins with a Storage object, this layer interfaces a Storables oject (Schema, Rows, or TOC) with a Block Object. 
+At the Block level we have a Block obj is 1024 bytes, contains meta deta and payload data. It is a serilized version of our Storables we need to save/load. <br>
+Each Storable is incharge of implementing their own store and load functions that returns a Block obj. For a Schema object we want to save to disk, the Block header would contain block type(types of blocks: schema, data, free,or toc), name length, and data size. The payload data would contain the attribute list. A Block object invokes a Binary Buffer object to do the actual serilziing. 
+
+{% include image-gallery.html images="Storage.png" height="400" alt="Storage_saving" %}
+
+For Load:
+
+We load when someone wants to use an already existing database. Again we start with a Storage object. This time we need to load the table of contents block from memory before we start loading in Schema blocks and Data Blocks. The table of contents block tells us where all the Schema blocks can be found.
+
+{% include image-gallery.html images="storage_load.png" height="400" alt="Storage_load" %}
+
+
+
+### **Storage:**
+
+### **Blocks:**
+
+### **Table of Contents:**
+
+Talk about hashing, utlity functions/maps, Binnary buffer class,
 
 ## Future Work / Weaknesses 
 
-I think some weaknesses of this database is passing large objects into utility fuctions, could increase speed by passing only whats necessary. There is some poor handling of circulary dependcies with the includes, need to seperate better so build time is quicker. 
+
+
+I think some weaknesses of this database is passing large objects into utility fuctions, could increase speed by passing only whats necessary. There is some poor handling of circulary dependcies with the includes, need to seperate better so build time is quicker. We need to delegate less work to handlers when it comes to storage need one more abstraction layer.
 
 
