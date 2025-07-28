@@ -58,8 +58,6 @@ Instead, by **pre-processing the tokens** to select the appropriate processor ea
 - Shorten traversal time through the chain (since unrelated handlers are skipped).
 - Allow new processors to be added or modified independently — adhering to the **Open/Closed Principle**.
 
-This makes the system easier to evolve and maintain over time.
-
 - **3. Low Cognitive Effort**  
 Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
 
