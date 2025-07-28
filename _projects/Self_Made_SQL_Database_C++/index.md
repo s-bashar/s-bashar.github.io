@@ -136,7 +136,8 @@ This layer demonstrates **modular responsibility**, clear ownership boundaries, 
 
 ## Storage Components:
 <br>
-### **High Level walk through of Storage** 
+
+## High Level walk through of Storage 
 
 For Saving to Disk: 
 
@@ -155,7 +156,8 @@ When opening an existing database, we again start with a `Storage` object. This 
 {% include image-gallery.html images="storage_load.png" height="400" alt="Storage_load" %}
 
 
-## 
+## Memory Layer Low Level Walk Through:
+<br>
 ### **Storage**
 The `Storage` class adheres to the **Single Responsibility Principle (SRP)** by acting solely as the interface between high-level database objects and low-level binary file I/O. Its primary role is to **serialize and deserialize objects** (via the `Storable` interface) into fixed-size blocks for persistent storage. It delegates all file access to the `BlockIO` class, keeping storage logic decoupled from physical I/O operations.<br>
 
@@ -163,7 +165,7 @@ In handling data conversion, the `Storage` class uses a `BinaryBuffer` helper to
 
 Overall, the `Storage` class provides a clean, focused abstraction for object persistence while offloading concerns like view logic, query processing, or block management to other layers.
 
-### **Block Layer:**
+### **Block Layer**
 At the block level, the system is designed around a modular, extensible interface for writing and reading persistent data structures to disk. Every object that can be serialized to storage (e.g., `Schema`, `Row`, `TOC`) implements the `Storable` interface, giving each class ownership of how it packs and unpacks its data into a fixed-size block structure.<br>
 
 This approach enables polymorphic storage logic — the `Storage` class doesn't need to know what it's storing, only that it adheres to the `Storable` contract. This promotes encapsulation by pushing block-specific serialization logic into the object itself, instead of centralizing it in the storage layer.<br>
@@ -174,9 +176,9 @@ Block chaining is also handled at this level. Large schema row maps that can't f
 
 Together, this design reflects strong object-oriented practices, enabling per-object control over persistence while abstracting away raw disk mechanics through block-based encoding.
 
-### **Table of Contents:**
+### **Table of Contents**
 
-he **TOC (Table of Contents)** layer is responsible for mapping logical database identifiers (like schema names or row primary keys) to their physical locations on disk. This logic is encapsulated in two classes: `Index` for **Schema-level TOC**, and `RowIndex` for **Row-level TOC** blocks. Both implement the `Storable` interface, making them first-class participants in the block system and fully compatible with the storage pipeline.<br>
+The **TOC (Table of Contents)** layer is responsible for mapping logical database identifiers (like schema names or row primary keys) to their physical locations on disk. This logic is encapsulated in two classes: `Index` for **Schema-level TOC**, and `RowIndex` for **Row-level TOC** blocks. Both implement the `Storable` interface, making them first-class participants in the block system and fully compatible with the storage pipeline.<br>
 
 The `Index` class manages schema metadata. It hashes each schema name using SHA256 and stores a key–value pair: `(schema hash → schema block location)`. This mapping is serialized into a dedicated TOC block, with each entry written in a consistent binary format. On load, it rehydrates the mappings by reading the block, loading the associated schema object, and verifying the integrity of each entry by rehashing the schema name and comparing it with the stored hash. This adds a lightweight form of integrity checking without needing a full checksum system.<br>
 
