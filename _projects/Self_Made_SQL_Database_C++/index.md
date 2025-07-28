@@ -63,7 +63,6 @@ This makes the system easier to evolve and maintain over time.
 - **3. Low Cognitive Effort**  
 Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
 
-
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
 
