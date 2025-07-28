@@ -46,7 +46,7 @@ Each processor single task is to setup the chain of responsibility for each type
 
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
-- **1. Readabilityy**  
+- **1. Readability**  
 By breaking up the processors, each class handles a focused, well-defined task and stays around ~30 lines of code. This makes each processor easy to read and understand in isolation, without requiring a full understanding of the entire system.
 
 - **2. Scalability & Maintainability**  
@@ -60,7 +60,7 @@ Instead, by **pre-processing the tokens** to select the appropriate processor ea
 
 This makes the system easier to evolve and maintain over time.
 
-- **3. Low Cognitive Effort **  
+- **3. Low Cognitive Effort**  
 Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
 
 
