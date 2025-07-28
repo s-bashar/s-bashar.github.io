@@ -46,10 +46,10 @@ Each processor single task is to setup the chain of responsibility for each type
 
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
--   **1. Readability**  
+- **1. Readability**  
 By breaking up the processors, each class handles a focused, well-defined task and stays around ~30 lines of code. This makes each processor easy to read and understand in isolation, without requiring a full understanding of the entire system.
 
--   **2. Scalability & Maintainability**  
+- **2. Scalability & Maintainability**  
 Having one large, monolithic processor that builds a giant Chain of Responsibility (CoR) would be difficult to scale or modify. Every new command or change would require modifying a central block, increasing the risk of bugs and regressions.
 
 Instead, by **pre-processing the tokens** to select the appropriate processor early, we:
@@ -60,14 +60,13 @@ Instead, by **pre-processing the tokens** to select the appropriate processor ea
 
 This makes the system easier to evolve and maintain over time.
 
-**3. Low Cognitive Effort **  
+- **3. Low Cognitive Effort **  
 Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
 
----
 
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
-
+---
 ### **Handlers:** 
 
 Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
@@ -85,7 +84,7 @@ This design cleanly decouples execution logic from view generation, improving mo
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
 
-
+---
 ## Database Layer Low Level Walk Through
 
 The `Database` class represents a high-level interface for interacting with stored database contents. It operates in two distinct modes depending on how it is constructed:
