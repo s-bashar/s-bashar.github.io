@@ -30,7 +30,7 @@ The correct handler is tasked with handling the job and passing on a string to a
 
 {% include image-gallery.html images="SQL_Overview.png" height="800" alt="DB Overview" %}
 
-## Low level walk through:
+## App Layer Low Level Walk Through:
 
 In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low cognitive effort. 
 ### **App Controller:** 
@@ -76,7 +76,7 @@ All handlers are derived from a pure virtual base class, this allows us to achie
 
 
 
-### **ViewGenerator:**
+### **View-Generator:**
 
 The ViewListener is designed to respond to signals from command handlers, receiving a string that encodes the relevant context (e.g., a query or view type). Upon receiving the signal, it instantiates and renders the appropriate view.
 
@@ -84,9 +84,8 @@ This design cleanly decouples execution logic from view generation, improving mo
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
 
-## Core Data Structures
 
-### **Database Layer**
+## Database Layer Low Level Walk Through
 
 The `Database` class represents a high-level interface for interacting with stored database contents. It operates in two distinct modes depending on how it is constructed:
 
@@ -135,9 +134,9 @@ This class also defines utility operators for equality, merging (`operator+`), a
 
 This layer demonstrates **modular responsibility**, clear ownership boundaries, and data model extensibility — with the `Schema`, `Attribute`, and `Row` classes each focused on a single domain concern. The use of variants, schema-bound row deserialization, and TOC-mapped block locations reflects a deliberate and scalable database design.
 
-## Storage Components
+## Storage Components:
 <br>
-### High Level walk through of Storage: 
+### **High Level walk through of Storage** 
 
 For Saving to Disk: 
 
@@ -156,8 +155,8 @@ When opening an existing database, we again start with a `Storage` object. This 
 {% include image-gallery.html images="storage_load.png" height="400" alt="Storage_load" %}
 
 
-
-### **Storage:**
+## 
+### **Storage**
 The `Storage` class adheres to the **Single Responsibility Principle (SRP)** by acting solely as the interface between high-level database objects and low-level binary file I/O. Its primary role is to **serialize and deserialize objects** (via the `Storable` interface) into fixed-size blocks for persistent storage. It delegates all file access to the `BlockIO` class, keeping storage logic decoupled from physical I/O operations.<br>
 
 In handling data conversion, the `Storage` class uses a `BinaryBuffer` helper to convert between in-memory variants and byte-level representations. Notably, the `writeVariant` method leverages the **Visitor pattern** (`std::visit`) to write different `VariantType` values (e.g., `int`, `string`, `float`, `bool`) in a type-safe, extensible way. This design simplifies variant handling and ensures the buffer logic remains modular and easy to extend as new types are added.<br>
