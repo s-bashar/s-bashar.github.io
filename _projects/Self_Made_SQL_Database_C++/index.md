@@ -66,7 +66,7 @@ Developers only need to understand **one processor at a time**, rather than a ta
 
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
----
+- - -
 ### **Handlers:** 
 
 Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
