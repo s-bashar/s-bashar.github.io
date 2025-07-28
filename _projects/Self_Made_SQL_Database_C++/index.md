@@ -108,10 +108,10 @@ An Attribute represents a single "field" in a database table defintion (Schema).
 Row class is responsible for holding user data for a given row. 
 
 ## Storage Components
+<br>
+### High Level walk through of Storage: 
 
-## High Level walk through of Storage: 
-
-For Saving: 
+For Saving to Disk: 
 
 It begins with a Storage object, this layer interfaces a Storables oject (Schema, Rows, or TOC) with a Block Object. 
 At the Block level we have a Block obj is 1024 bytes, contains meta deta and payload data. It is a serilized version of our Storables we need to save/load. <br>
@@ -119,7 +119,7 @@ Each Storable is incharge of implementing their own store and load functions tha
 
 {% include image-gallery.html images="Storage.png" height="400" alt="Storage_saving" %}
 
-For Load:
+For Loading from Disk:
 
 We load when someone wants to use an already existing database. Again we start with a Storage object. This time we need to load the table of contents block from memory before we start loading in Schema blocks and Data Blocks. The table of contents block tells us where all the Schema blocks can be found.
 
