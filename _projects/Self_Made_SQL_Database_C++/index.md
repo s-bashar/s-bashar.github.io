@@ -47,19 +47,23 @@ Each processor single task is to setup the chain of responsibility for each type
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
 - **1. Readability**  
-By breaking up the processors, each class handles a focused, well-defined task and stays around ~30 lines of code. This makes each processor easy to read and understand in isolation, without requiring a full understanding of the entire system.
+  By breaking up the processors, each class handles a focused, well-defined task and stays around ~30 lines of code.  
+  This makes each processor easy to read and understand in isolation, without requiring a full understanding of the entire system.
 
 - **2. Scalability & Maintainability**  
-Having one large, monolithic processor that builds a giant Chain of Responsibility (CoR) would be difficult to scale or modify. Every new command or change would require modifying a central block, increasing the risk of bugs and regressions.
+  Having one large, monolithic processor that builds a giant Chain of Responsibility (CoR) would be difficult to scale or modify.  
+  Every new command or change would require modifying a central block, increasing the risk of bugs and regressions.
 
-Instead, by **pre-processing the tokens** to select the appropriate processor early, we:
-
-- Reduce unnecessary handlers loaded into memory.
-- Shorten traversal time through the chain (since unrelated handlers are skipped).
-- Allow new processors to be added or modified independently — adhering to the **Open/Closed Principle**.
+  Instead, by **pre-processing the tokens** to select the appropriate processor early, we:
+  
+  - **Reduce unnecessary handlers** loaded into memory  
+  - **Shorten traversal time** through the chain (since unrelated handlers are skipped)  
+  - **Allow new processors to be added or modified independently** — adhering to the **Open/Closed Principle**
 
 - **3. Low Cognitive Effort**  
-Developers only need to understand **one processor at a time**, rather than a tangled mega-handler with complex branching. The system becomes more modular and easier to reason about, debug, and test.
+  Developers only need to understand **one processor at a time**,  
+  rather than a tangled mega-handler with complex branching.  
+  The system becomes more modular and easier to reason about, debug, and test.
 
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
