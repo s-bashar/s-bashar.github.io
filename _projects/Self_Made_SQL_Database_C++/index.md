@@ -51,9 +51,7 @@ By breaking up the processors, each class handles a focused, well-defined task a
 
 - **2. Scalability & Maintainability**  
 Having one large, monolithic processor that builds a giant Chain of Responsibility (CoR) would be difficult to scale or modify. Every new command or change would require modifying a central block, increasing the risk of bugs and regressions.
-
 Instead, by **pre-processing the tokens** to select the appropriate processor early, we:
-
 - Reduce unnecessary handlers loaded into memory.
 - Shorten traversal time through the chain (since unrelated handlers are skipped).
 - Allow new processors to be added or modified independently — adhering to the **Open/Closed Principle**.
