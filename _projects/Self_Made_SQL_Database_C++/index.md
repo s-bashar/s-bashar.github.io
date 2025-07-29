@@ -15,7 +15,7 @@ main-image: /SQL_logo.png
 ---
 
 # Project Repo:
-[View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5)
+[View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5/tree/Shayaun-Branch)
 
 # Project Overview:
 
