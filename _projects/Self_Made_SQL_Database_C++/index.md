@@ -38,7 +38,7 @@ In general we create each abstraction layer to follow "Single Responsibility Pri
 
 The first layer is our "App Controller" class, single responbility it to select the correct proccessor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
 App controller calls on a Tokizer utility class to help break down the input stream. 
-
+---
 ### **Processors:** 
 
 The next abstraction layer is the processor classes, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "INsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
@@ -68,6 +68,8 @@ This design follows the three core principles of good software: **readability**,
 **Summary**  
 This design methodology improves performance, modularity, and clarity. It aligns with core software engineering principles by ensuring each component has a single responsibility and a clear, self-contained scope.
 
+---
+
 ### **Handlers:** 
 
 Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
@@ -76,6 +78,7 @@ All handlers are derived from a pure virtual base class, this allows us to achie
 {% include image-gallery.html images="default_handler_cut.png" height="600" alt="default_handler" %}
 
 
+---
 
 ### **View-Generator:**
 
