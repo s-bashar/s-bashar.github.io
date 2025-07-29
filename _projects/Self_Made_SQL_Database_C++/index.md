@@ -21,7 +21,7 @@ main-image: /SQL_logo.png
 
 I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how each block works and what patterns/idioms, and abstraction layers are used and why. 
 
-## High level walk through: 
+## App Layer High level Walk Through: 
 
 We receive a query and hand it to our app controller obj, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer obj parses the isteam and breaks down the input into a vector of tokens that our code can work with. 
 App controller's last task is to find the right processor to delgate the rest of the work to, does so by parsing the tokens. A processors job is to setup the chain of responsibility for a particular type of query (basic,table, database, etc..). 
@@ -136,10 +136,10 @@ This class also defines utility operators for equality, merging (`operator+`), a
 
 This layer demonstrates **modular responsibility**, clear ownership boundaries, and data model extensibility — with the `Schema`, `Attribute`, and `Row` classes each focused on a single domain concern. The use of variants, schema-bound row deserialization, and TOC-mapped block locations reflects a deliberate and scalable database design.
 ---
-## Storage Components:
-<br>
 
-## High Level walk through of Storage 
+---
+
+## Memory Layer High Level Walk Through:
 <br>
 
 *For Saving to Disk:* 
@@ -171,7 +171,7 @@ Overall, the `Storage` class provides a clean, focused abstraction for object pe
 ### **Block Layer**
 At the block level, the system is designed around a modular, extensible interface for writing and reading persistent data structures to disk. Every object that can be serialized to storage (e.g., `Schema`, `Row`, `TOC`) implements the `Storable` interface, giving each class ownership of how it packs and unpacks its data into a fixed-size block structure.<br>
 
-This approach enables polymorphic storage logic — the `Storage` class doesn't need to know what it's storing, only that it adheres to the `Storable` contract. This promotes encapsulation by pushing block-specific serialization logic into the object itself, instead of centralizing it in the storage layer.<br>
+This approach enables polymorphic storage logic, the `Storage` class doesn't need to know what it's storing, only that it adheres to the `Storable` contract. This promotes encapsulation by pushing block-specific serialization logic into the object itself, instead of centralizing it in the storage layer.<br>
 
 For example, the `Schema` class implements its own `store()` and `load()` methods. When storing, it encodes its metadata (e.g., schema name, attribute list, TOC pointers) into a binary buffer. Each attribute is serialized field-by-field, including its name, data type, flags, and default value. `defaultVal` is a variant, written using the **Visitor pattern** via `std::visit`. This keeps the logic type-safe and scalable as more types are added.<br>
 
