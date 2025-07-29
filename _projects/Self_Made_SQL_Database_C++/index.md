@@ -141,8 +141,9 @@ This layer demonstrates **modular responsibility**, clear ownership boundaries, 
 <br>
 
 ## High Level walk through of Storage 
+<br>
 
-For Saving to Disk: 
+*For Saving to Disk:* 
 
 The storage layer begins with a `Storage` object. This class serves as the interface between high-level database objects (like `Schema`, `Row`, or Table of Contents) and low-level binary blocks written to disk.<br>
 
@@ -152,7 +153,7 @@ For example, when storing a `Schema`, the block’s header records that it's a `
 
 {% include image-gallery.html images="Storage.png" height="400" alt="Storage_saving" %}
 
-For Loading from Disk:
+*For Loading from Disk:*
 
 When opening an existing database, we again start with a `Storage` object. This time, the first block we load is the **Table of Contents (TOC)** block, which maps schema names (stored as hashes) to their physical block locations. After parsing the TOC, we load each `Schema` block and any related row index blocks as needed.
 
