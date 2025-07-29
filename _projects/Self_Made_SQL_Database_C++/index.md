@@ -171,7 +171,9 @@ The `Storage` class adheres to the **Single Responsibility Principle (SRP)** by 
 In handling data conversion, the `Storage` class uses a `BinaryBuffer` helper to convert between in-memory variants and byte-level representations. Notably, the `writeVariant` method leverages the **Visitor pattern** (`std::visit`) to write different `VariantType` values (e.g., `int`, `string`, `float`, `bool`) in a type-safe, extensible way. This design simplifies variant handling and ensures the buffer logic remains modular and easy to extend as new types are added.<br>
 
 Overall, the `Storage` class provides a clean, focused abstraction for object persistence while offloading concerns like view logic, query processing, or block management to other layers.
+
 ---
+
 ### **Block Layer**
 At the block level, the system is designed around a modular, extensible interface for writing and reading persistent data structures to disk. Every object that can be serialized to storage (e.g., `Schema`, `Row`, `TOC`) implements the `Storable` interface, giving each class ownership of how it packs and unpacks its data into a fixed-size block structure.<br>
 
