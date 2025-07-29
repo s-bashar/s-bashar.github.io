@@ -16,7 +16,7 @@ main-image: /SQL_logo.png
 
 # Project Repo:
 [View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5/tree/Shayaun-Branch)
-
+Note: Be sure to be in "Shayaun-Branch" not main. 
 # Project Overview:
 
 I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how each block works and what patterns/idioms, and abstraction layers are used and why. 
