@@ -133,10 +133,9 @@ Rows support serialization through the `store()` method (writing variant-typed d
 
 This class also defines utility operators for equality, merging (`operator+`), and indexed access, enabling flexibility in query processing or JOIN logic.
 
----
 
 This layer demonstrates **modular responsibility**, clear ownership boundaries, and data model extensibility — with the `Schema`, `Attribute`, and `Row` classes each focused on a single domain concern. The use of variants, schema-bound row deserialization, and TOC-mapped block locations reflects a deliberate and scalable database design.
-
+---
 ## Storage Components:
 <br>
 
@@ -168,7 +167,7 @@ The `Storage` class adheres to the **Single Responsibility Principle (SRP)** by 
 In handling data conversion, the `Storage` class uses a `BinaryBuffer` helper to convert between in-memory variants and byte-level representations. Notably, the `writeVariant` method leverages the **Visitor pattern** (`std::visit`) to write different `VariantType` values (e.g., `int`, `string`, `float`, `bool`) in a type-safe, extensible way. This design simplifies variant handling and ensures the buffer logic remains modular and easy to extend as new types are added.<br>
 
 Overall, the `Storage` class provides a clean, focused abstraction for object persistence while offloading concerns like view logic, query processing, or block management to other layers.
-
+---
 ### **Block Layer**
 At the block level, the system is designed around a modular, extensible interface for writing and reading persistent data structures to disk. Every object that can be serialized to storage (e.g., `Schema`, `Row`, `TOC`) implements the `Storable` interface, giving each class ownership of how it packs and unpacks its data into a fixed-size block structure.<br>
 
@@ -179,7 +178,7 @@ For example, the `Schema` class implements its own `store()` and `load()` method
 Block chaining is also handled at this level. Large schema row maps that can't fit in a single block are automatically split across multiple index blocks, which are chained using `nextBlockIndex` in the block header. The `WriteMap()` method handles this transparently. On load, `getMap()` reconstructs the full map by traversing the chain — a design pattern similar to FAT tables or inode chains in filesystems.<br>
 
 Together, this design reflects strong object-oriented practices, enabling per-object control over persistence while abstracting away raw disk mechanics through block-based encoding.
-
+---
 ### **Table of Contents**
 
 The **TOC (Table of Contents)** layer is responsible for mapping logical database identifiers (like schema names or row primary keys) to their physical locations on disk. This logic is encapsulated in two classes: `Index` for **Schema-level TOC**, and `RowIndex` for **Row-level TOC** blocks. Both implement the `Storable` interface, making them first-class participants in the block system and fully compatible with the storage pipeline.<br>
