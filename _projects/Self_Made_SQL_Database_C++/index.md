@@ -112,6 +112,7 @@ A `Schema` object defines the layout of a table — it stores metadata such as a
 {% include image-gallery.html images="Schema_hpp.png" height="400" alt="Schema_hpp" %}
 ---
 
+
 ### **Attributes**
 
 Each `Attribute` defines one column of a table. Its structure captures:
@@ -124,6 +125,7 @@ Each `Attribute` defines one column of a table. Its structure captures:
 
 By encapsulating attribute metadata this way, your system is able to fully reconstruct or validate table structure on load.
 
+{% include image-gallery.html images="Arrtibute_hpp.png" height="400" alt="Arrtibute_hpp" %}
 ---
 
 ### **Rows**
@@ -134,8 +136,9 @@ Rows support serialization through the `store()` method (writing variant-typed d
 
 This class also defines utility operators for equality, merging (`operator+`), and indexed access, enabling flexibility in query processing or JOIN logic.
 
-
 This layer demonstrates **modular responsibility**, clear ownership boundaries, and data model extensibility — with the `Schema`, `Attribute`, and `Row` classes each focused on a single domain concern. The use of variants, schema-bound row deserialization, and TOC-mapped block locations reflects a deliberate and scalable database design.
+
+{% include image-gallery.html images="Row_hpp.png" height="400" alt="Row_hpp" %}
 ---
 
 ---
