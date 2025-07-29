@@ -109,6 +109,7 @@ A `Schema` object defines the layout of a table — it stores metadata such as a
 
 {% include image-gallery.html images="schema_query.png" height="400" alt="schema_query" %}
 
+{% include image-gallery.html images="Schema_hpp.png" height="400" alt="Schema_hpp" %}
 ---
 
 ### **Attributes**
@@ -195,8 +196,13 @@ By treating TOC blocks as `Storable` objects and applying consistent logic acros
 This version aligns with how technical readers think: responsibilities, internal invariants,
 
 
+---
+---
+## Cool features: 
+ Instead of hardcoding behavior for every keyword, I used a std::map to associate attribute-related keywords with handler functions. This lets me flexibly dispatch actions at runtime based on parsed tokens, which not only simplifies parsing logic but also makes the system easily extensible. For compound keywords like not null, the parser looks ahead and combines tokens to check for those keys in the map as well. Each function encapsulates the logic to update a specific field in the attribute object, so parsing and attribute-building stay cleanly separated.
 
-Talk about hashing, utlity functions/maps
+{% include image-gallery.html images="attribute_mapping.png" height="400" alt="attribute_mapping" %}
+
 ## Future Work / Weaknesses 
 
 
