@@ -15,12 +15,13 @@ main-image: /SQL_logo.png
 ---
 
 # Project Repo:
-[View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5/tree/Shayaun-Branch)
+[View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5/tree/Shayaun-Branch) 
 Note: Be sure to be in "Shayaun-Branch" not main. 
+<br>
+This project is a modular SQL-style database built for educational and architectural exploration.
 # Project Overview:
 
-I will be showing a high level block explanaiton of how this database operates and then dive deep into each block showcasing how each block works and what patterns/idioms, and abstraction layers are used and why. 
-
+This document provides a high-level overview of the database system, followed by detailed explanations of each subsystem, including key abstractions, design patterns, and architectural decisions.
 ## App Layer High level Walk Through: 
 
 We receive a query and hand it to our app controller obj, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer obj parses the isteam and breaks down the input into a vector of tokens that our code can work with. 
@@ -36,13 +37,13 @@ The correct handler is tasked with handling the job and passing on a string to a
 In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low cognitive effort. 
 ### **App Controller:** 
 
-The first layer is our "App Controller" class, single responbility it to select the correct proccessor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
-App controller calls on a Tokizer utility class to help break down the input stream. 
+The first layer is our "App Controller" class, responsible for delegating query handling to the appropriate processor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
+App controller uses a Tokenizer utility class to convert the input stream into a token sequence. 
 ---
 ### **Processors:** 
 
-The next abstraction layer is the processor classes, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "INsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
-Each processor single task is to setup the chain of responsibility for each type of query (i.g. Basic Query, DataBase Query, Table Query, or etc...). <br>
+The next abstraction layer is the proccessor layer, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "InsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
+Each processor single task is to setup the chain of responbility for each type of query (i.g. Basic Query, DataBase Query, Table Query, or etc...). <br>
 
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
@@ -58,7 +59,7 @@ This design follows the three core principles of good software: **readability**,
   
   - **Reduce unnecessary handlers** loaded into memory  
   - **Shorten traversal time** through the chain (since unrelated handlers are skipped)  
-  - **Allow new processors to be added or modified independently** — adhering to the **Open/Closed Principle**
+  - **Allow new processors to be added or modified independently** — adhering to the **Open/Closed Principle**. “For example, to support a new query type (e.g., ALTER TABLE), we could introduce a new Processor and Handler pair without modifying existing code.
 
 - **3. Low Cognitive Effort**  
   Developers only need to understand **one processor at a time**,  
@@ -72,8 +73,8 @@ This design methodology improves performance, modularity, and clarity. It aligns
 
 ### **Handlers:** 
 
-Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage within that layer there is a Block layer that handles the chunking of the memory writes/reads.  <br>
-All handlers are derived from a pure virtual base class, this allows us to achieve run time polymoriphsm which keeps our code clean, flexible, and less error prone.
+Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage which we I will talk about layer.  <br>
+All handlers are derived from a pure virtual base class, DefaultHandler, this allows us to achieve run time polymoriphsm which keeps our code clean, flexible, and less error prone.
 
 {% include image-gallery.html images="default_handler_cut.png" height="600" alt="default_handler" %}
 
@@ -82,9 +83,9 @@ All handlers are derived from a pure virtual base class, this allows us to achie
 
 ### **View-Generator:**
 
-The ViewListener is designed to respond to signals from command handlers, receiving a string that encodes the relevant context (e.g., a query or view type). Upon receiving the signal, it instantiates and renders the appropriate view.
+The ViewListener is designed to respond to signals from command handlers, in our case receiving a string from the Handler. Upon receiving the signal, it instantiates and renders the appropriate view.
 
-This design cleanly decouples execution logic from view generation, improving modularity and maintainability. It also reduces code duplication by leveraging a shared interface: View serves as the base class for specific views like TableView and FolderView.
+This design cleanly decouples execution logic from view generation, improving modularity and maintainability. It also reduces code duplication by leveraging a shared interface: View serves as the base class for specific views like TableView and FolderView. It is up to the handler to choose the correct view.
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
 
@@ -173,6 +174,8 @@ The `Storage` class adheres to the **Single Responsibility Principle (SRP)** by 
 
 In handling data conversion, the `Storage` class uses a `BinaryBuffer` helper to convert between in-memory variants and byte-level representations. Notably, the `writeVariant` method leverages the **Visitor pattern** (`std::visit`) to write different `VariantType` values (e.g., `int`, `string`, `float`, `bool`) in a type-safe, extensible way. This design simplifies variant handling and ensures the buffer logic remains modular and easy to extend as new types are added.<br>
 
+This layer abstracts the process of serializing objects to disk using fixed-size blocks, enabling persistent storage of schema, rows, and metadata. <br>
+
 Overall, the `Storage` class provides a clean, focused abstraction for object persistence while offloading concerns like view logic, query processing, or block management to other layers.
 
 ---
@@ -216,10 +219,16 @@ This version aligns with how technical readers think: responsibilities, internal
  2. The BinaryBuffer class is a lightweight, type-safe serialization utility that enables writing and reading raw binary data (including strings and variant types) to and from an internal std::vector<char> buffer. It supports templated write() and read() methods for arbitrary types, null-terminated string handling, and type-safe serialization of VariantType using std::visit
 {% include image-gallery.html images="Binary_buff_hpp.png" height="400" alt="Binary_buff.hpp" %}
 
+3. The LRUCache class is a high-performance, type-generic cache that uses a Least Recently Used (LRU) eviction policy to manage memory efficiently. It combines a std::list to maintain access order with an unordered_map for constant-time lookup and insertion, ensuring that recently accessed data remains readily available while older, unused data is evicted when capacity is reached. This pattern is especially useful in database systems for caching frequently used rows, schemas, or metadata, reducing redundant disk access and improving runtime efficiency. The cache also includes control features like activation toggling (isActive) and a singleton-style createCache() factory, giving the developer flexibility in when and how caching is applied. Overall, it introduces a modular and efficient way to optimize performance without invasive changes to the core logic.
+{% include image-gallery.html images="cache_hpp.png" height="400" alt="cache_hpp.hpp" %}
+4. Schema maps enable fast join
+
 ## Future Work / Weaknesses 
 
-
-
-I think some weaknesses of this database is passing large objects into utility fuctions, could increase speed by passing only whats necessary. There is some poor handling of circulary dependcies with the includes, need to seperate better so build time is quicker. We need to delegate less work to handlers when it comes to storage need one more abstraction layer.
+- Work on minimizing sending big objects into function calls. 
+- Handlers still do a lot of the work, consider breaking up the work into helper functions improve readablity.
+- Work on remoting. 
+- Audit class members and refactor public fields to accessor/mutator methods where appropriate.
+- Work on #include and circulary dependcy issues. 
 
 
