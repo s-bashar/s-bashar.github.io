@@ -184,7 +184,9 @@ For example, the `Schema` class implements its own `store()` and `load()` method
 Block chaining is also handled at this level. Large schema row maps that can't fit in a single block are automatically split across multiple index blocks, which are chained using `nextBlockIndex` in the block header. The `WriteMap()` method handles this transparently. On load, `getMap()` reconstructs the full map by traversing the chain — a design pattern similar to FAT tables or inode chains in filesystems.<br>
 
 Together, this design reflects strong object-oriented practices, enabling per-object control over persistence while abstracting away raw disk mechanics through block-based encoding.
+
 ---
+
 ### **Table of Contents**
 
 The **TOC (Table of Contents)** layer is responsible for mapping logical database identifiers (like schema names or row primary keys) to their physical locations on disk. This logic is encapsulated in two classes: `Index` for **Schema-level TOC**, and `RowIndex` for **Row-level TOC** blocks. Both implement the `Storable` interface, making them first-class participants in the block system and fully compatible with the storage pipeline.<br>
