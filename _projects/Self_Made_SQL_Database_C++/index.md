@@ -191,6 +191,8 @@ Block chaining is also handled at this level. Large schema row maps that can't f
 
 Together, this design reflects strong object-oriented practices, enabling per-object control over persistence while abstracting away raw disk mechanics through block-based encoding.
 
+{% include image-gallery.html images="Block_hpp.png" height="400" alt="Block_hpp" %}
+
 ---
 
 ### **Table of Contents**
@@ -213,14 +215,14 @@ This version aligns with how technical readers think: responsibilities, internal
 ---
 ---
 ## More Features: 
- 1. Instead of hardcoding behavior for every keyword, I used a std::map to associate attribute-related keywords with handler functions. This lets me flexibly dispatch actions at runtime based on parsed tokens, which not only simplifies parsing logic but also makes the system easily extensible. For compound keywords like not null, the parser looks ahead and combines tokens to check for those keys in the map as well. Each function encapsulates the logic to update a specific field in the attribute object, so parsing and attribute-building stay cleanly separated.
+1.) Instead of hardcoding behavior for every keyword, I used a std::map to associate attribute-related keywords with handler functions. This lets me flexibly dispatch actions at runtime based on parsed tokens, which not only simplifies parsing logic but also makes the system easily extensible. For compound keywords like not null, the parser looks ahead and combines tokens to check for those keys in the map as well. Each function encapsulates the logic to update a specific field in the attribute object, so parsing and attribute-building stay cleanly separated.
 
 {% include image-gallery.html images="attribute_mapping.png" height="400" alt="attribute_mapping" %}
 
- 2. The BinaryBuffer class is a lightweight, type-safe serialization utility that enables writing and reading raw binary data (including strings and variant types) to and from an internal std::vector<char> buffer. It supports templated write() and read() methods for arbitrary types, null-terminated string handling, and type-safe serialization of VariantType using std::visit
+2.) The BinaryBuffer class is a lightweight, type-safe serialization utility that enables writing and reading raw binary data (including strings and variant types) to and from an internal std::vector<char> buffer. It supports templated write() and read() methods for arbitrary types, null-terminated string handling, and type-safe serialization of VariantType using std::visit
 {% include image-gallery.html images="Binary_buff_hpp.png" height="400" alt="Binary_buff.hpp" %}
 
-3. The LRUCache class is a high-performance, type-generic cache that uses a Least Recently Used (LRU) eviction policy to manage memory efficiently. It combines a std::list to maintain access order with an unordered_map for constant-time lookup and insertion, ensuring that recently accessed data remains readily available while older, unused data is evicted when capacity is reached. This pattern is especially useful in database systems for caching frequently used rows, schemas, or metadata, reducing redundant disk access and improving runtime efficiency. The cache also includes control features like activation toggling (isActive) and a singleton-style createCache() factory, giving the developer flexibility in when and how caching is applied. Overall, it introduces a modular and efficient way to optimize performance without invasive changes to the core logic.
+3.) The LRUCache class is a high-performance, type-generic cache that uses a Least Recently Used (LRU) eviction policy to manage memory efficiently. It combines a std::list to maintain access order with an unordered_map for constant-time lookup and insertion, ensuring that recently accessed data remains readily available while older, unused data is evicted when capacity is reached. This pattern is especially useful in database systems for caching frequently used rows, schemas, or metadata, reducing redundant disk access and improving runtime efficiency. The cache also includes control features like activation toggling (isActive) and a singleton-style createCache() factory, giving the developer flexibility in when and how caching is applied. Overall, it introduces a modular and efficient way to optimize performance without invasive changes to the core logic.
 {% include image-gallery.html images="cache_hpp.png" height="400" alt="cache_hpp.hpp" %}
 
 
