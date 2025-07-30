@@ -89,6 +89,8 @@ This design cleanly decouples execution logic from view generation, improving mo
 
 For example, TableView is built to be data-driven — it operates solely on a collection of rows and doesn't distinguish between different query types (e.g., SELECT *, JOIN, etc.). This abstraction means that as long as the correct row data is provided, the view can render it consistently, regardless of the query structure that produced it.
 
+{% include image-gallery.html images="view_hpp.png" height="600" alt="view_hpp" %}
+
 ---
 
 ---
