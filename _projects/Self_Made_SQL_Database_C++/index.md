@@ -24,9 +24,9 @@ This project is a modular SQL-style database built for educational and architect
 This document provides a high-level overview of the database system, followed by detailed explanations of each subsystem, including key abstractions, design patterns, and architectural decisions.
 ## App Layer High level Walk Through: 
 
-We receive a query and hand it to our app controller obj, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer obj parses the isteam and breaks down the input into a vector of tokens that our code can work with. 
-App controller's last task is to find the right processor to delgate the rest of the work to, does so by parsing the tokens. A processors job is to setup the chain of responsibility for a particular type of query (basic,table, database, etc..). 
-Chain of responbility starts with one handler parsing the tokens and determining if it can handle the input, if it can't handle the input, the handler passes down the responbility of handing to the next handler and so on till there are no more handlers or a handler is able to handle input. 
+We receive a query and hand it to our AppController object, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer object parses the input stream and breaks down the input into a vector of tokens that our code can work with. 
+App controller's last task is to find the right processor to delegate the rest of the work to, does so by parsing the tokens. A processors job is to setup the chain of responsibility for a particular type of query (basic,table, database, etc..). 
+Chain of responbility starts with one handler parsing the tokens and determining if it can handle the input, if it can't handle the input, the handler passes down the responsibility of handing to the next handler and so on till there are no more handlers or a handler is able to handle input. 
 The correct handler is tasked with handling the job and passing on a string to a viewer listener obj.
 
 
@@ -34,7 +34,7 @@ The correct handler is tasked with handling the job and passing on a string to a
 
 ## App Layer Low Level Walk Through:
 
-In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalabe/maintable , and low cognitive effort. 
+In general we create each abstraction layer to follow "Single Responsibility Priniciple" this helps the code to be readable, scalable/maintainable , and low cognitive effort. 
 ### **App Controller:** 
 
 The first layer is our "App Controller" class, responsible for delegating query handling to the appropriate processor for a given query. While mainting the information of current database, state of program (running or not), and passing a ViewListener down the abstraction layers. <br>
@@ -42,8 +42,8 @@ App controller uses a Tokenizer utility class to convert the input stream into a
 ---
 ### **Processors:** 
 
-The next abstraction layer is the proccessor layer, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "InsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
-Each processor single task is to setup the chain of responbility for each type of query (i.g. Basic Query, DataBase Query, Table Query, or etc...). <br>
+The next abstraction layer is the processor layer, we have 6. "BasicProcessor", "DataBaseProcessor", "TableProcessor", "InsertProcessor", "SelectProcessor", "UpdateandDelProcessor". <br>
+Each processor's single task is to setup the chain of responsibility for each type of query (i.g. Basic Query, DataBase Query, Table Query, or etc...). <br>
 
 This design follows the three core principles of good software: **readability**, **scalability/maintainability**, and **low cognitive effort**.
 
@@ -73,7 +73,7 @@ This design methodology improves performance, modularity, and clarity. It aligns
 
 ### **Handlers:** 
 
-Handlers class sole responisbility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage which we I will talk about layer.  <br>
+Handlers class sole responsibility is to do the actual work that the query needs as well as invoking a storage object to handle the saving of the database to memory, the Storage class is another abstraction layer for disk storage which I will talk about later.  <br>
 All handlers are derived from a pure virtual base class, DefaultHandler, this allows us to achieve run time polymoriphsm which keeps our code clean, flexible, and less error prone.
 
 {% include image-gallery.html images="default_handler_cut.png" height="600" alt="default_handler" %}
@@ -83,7 +83,7 @@ All handlers are derived from a pure virtual base class, DefaultHandler, this al
 
 ### **View-Generator:**
 
-The ViewListener is designed to respond to signals from command handlers, in our case receiving a string from the Handler. Upon receiving the signal, it instantiates and renders the appropriate view.
+The ViewListener is designed to respond to signals from command handlers, in our case receiving a string from the handler. Upon receiving the signal, it instantiates and renders the appropriate view.
 
 This design cleanly decouples execution logic from view generation, improving modularity and maintainability. It also reduces code duplication by leveraging a shared interface: View serves as the base class for specific views like TableView and FolderView. It is up to the handler to choose the correct view.
 
@@ -158,7 +158,7 @@ The storage layer begins with a `Storage` object. This class serves as the inter
 
 Each `Storable` object implements its own `store()` and `load()` methods, which serialize or deserialize themselves using a `BinaryBuffer`, writing into a `Block` object. Blocks are fixed-size (1024 bytes) and contain a header (metadata like block type, name length, and data size) followed by a payload section used to hold serialized binary data.<br>
 
-For example, when storing a `Schema`, the block’s header records that it's a `schemaBlock`, along with the schema name size and total data size. The payload includes the attribute list, primary key info, and any other schema metadata. The `BinaryBuffer` handles writing this data into the block in a platform-independent way.
+For example, when storing a `Schema`, the block’s header records that it's a `schemaBlock`, along with the schema name size and total data size. The payload includes the attribute list, primary key data, and any other schema metadata. The `BinaryBuffer` handles writing this data into the block in a platform-independent way.
 
 {% include image-gallery.html images="Storage.png" height="400" alt="Storage_saving" %}
 
@@ -208,7 +208,7 @@ Internally, `Index` maintains:
 - `DBDeq`: a deque storing block locations of loaded schemas
 
 The `RowIndex` class operates similarly but focuses on rows within a specific schema. It serializes primary key → row block location mappings, which are split into fixed-size chunks if the row map exceeds the payload size of a block. This design ensures scalability as datasets grow. On load, `RowIndex` repopulates the in-memory row map and updates the owning schema's block list (`Schema_Deq`). <br>
-Having a Row Index is espically usefull for fast Inserts, JOINs, and Selects since we do not need to do full memory look up to find blocks.
+Having a Row Index is especially usefull for fast Inserts, JOINs, and Selects since we do not need to do full memory look up to find blocks.
 
 By treating TOC blocks as `Storable` objects and applying consistent logic across schema and row indexing, this layer stays modular, extensible, and easy to reason about. It demonstrates encapsulation, consistent data ownership, and a clean separation of metadata handling from actual data storage.
 This version aligns with how technical readers think: responsibilities, internal invariants,
@@ -218,7 +218,7 @@ This version aligns with how technical readers think: responsibilities, internal
 ---
 ---
 ## More Features: 
-1.) Instead of hardcoding behavior for every keyword, I used a std::map to associate attribute-related keywords with handler functions. This lets me flexibly dispatch actions at runtime based on parsed tokens, which not only simplifies parsing logic but also makes the system easily extensible. For compound keywords like not null, the parser looks ahead and combines tokens to check for those keys in the map as well. Each function encapsulates the logic to update a specific field in the attribute object, so parsing and attribute-building stay cleanly separated.
+1.) Instead of hardcoding parsing logic for every keyword, we used a std::map to flexibly dispatch handler functions based on parsed tokens. Which not only simplifies parsing logic but also makes the system easily extensible. For compound keywords like not null, the parser looks ahead and combines tokens to check for those keys in the map as well. Each function encapsulates the logic to update a specific field in the attribute object, so parsing and attribute-building stay cleanly separated.
 
 {% include image-gallery.html images="attribute_mapping.png" height="400" alt="attribute_mapping" %}
 
