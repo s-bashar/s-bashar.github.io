@@ -211,6 +211,7 @@ Having a Row Index is espically usefull for fast Inserts, JOINs, and Selects sin
 By treating TOC blocks as `Storable` objects and applying consistent logic across schema and row indexing, this layer stays modular, extensible, and easy to reason about. It demonstrates encapsulation, consistent data ownership, and a clean separation of metadata handling from actual data storage.
 This version aligns with how technical readers think: responsibilities, internal invariants,
 
+{% include image-gallery.html images="Index_hpp.png" height="400" alt="Index_hpp" %}
 
 ---
 ---
