@@ -236,4 +236,6 @@ This version aligns with how technical readers think: responsibilities, internal
 - Audit class members and refactor public fields to accessor/mutator methods where appropriate.
 - Work on #include and circulary dependcy issues. 
 
+## Created by Shayaun Bashar and Aniket Bhosale ECE141B Prof. Rick Gessner
+
 
