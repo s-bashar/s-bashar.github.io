@@ -18,7 +18,7 @@ main-image: /SQL_logo.png
 [View the source code on GitHub](https://github.com/s-bashar/SP24-ECE141B-Database-Team5/tree/Shayaun-Branch) 
 Note: Be sure to be in "Shayaun-Branch" not main. 
 <br>
-This project is a modular SQL-style database built for educational and architectural exploration.
+This project is a SQL-style database built for educational and architectural exploration.
 # Project Overview:
 
 This document provides a high-level overview of the database system, followed by detailed explanations of each subsystem, including key abstractions, design patterns, and architectural decisions.
@@ -33,7 +33,7 @@ The `AppController` then passes the input stream to our `Tokenizer` object.
 The `Tokenizer` parses the input stream and breaks it down into a vector of tokens that our code can work with.  
 <br>
 
-The final responsibility of the `AppController` is to determine and delegate the work to the correct `Processor`.  
+The responsibility of the `AppController` is to determine and delegate the work to the correct `Processor`.  
 It does so by parsing the token stream and selecting the appropriate processor based on the query type.  
 Each `Processor` sets up a **Chain of Responsibility** for handling a specific category of query (e.g., basic, table, database, etc.).  
 <br>
