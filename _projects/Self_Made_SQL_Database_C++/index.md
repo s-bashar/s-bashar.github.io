@@ -24,10 +24,26 @@ This project is a modular SQL-style database built for educational and architect
 This document provides a high-level overview of the database system, followed by detailed explanations of each subsystem, including key abstractions, design patterns, and architectural decisions.
 ## App Layer High level Walk Through: 
 
-We receive a query and hand it to our AppController object, for example "create table test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name varchar(50));", app controller then gives the input stream to our tokenizer obj. Our tokenizer object parses the input stream and breaks down the input into a vector of tokens that our code can work with. 
-App controller's last task is to find the right processor to delegate the rest of the work to, does so by parsing the tokens. A processors job is to setup the chain of responsibility for a particular type of query (basic,table, database, etc..). 
-Chain of responbility starts with one handler parsing the tokens and determining if it can handle the input, if it can't handle the input, the handler passes down the responsibility of handing to the next handler and so on till there are no more handlers or a handler is able to handle input. 
-The correct handler is tasked with handling the job and passing on a string to a viewer listener obj.
+We receive a query and hand it to our `AppController` object.  
+For example:  
+`create table test1 (Schema);`  
+<br>
+
+The `AppController` then passes the input stream to our `Tokenizer` object.  
+The `Tokenizer` parses the input stream and breaks it down into a vector of tokens that our code can work with.  
+<br>
+
+The final responsibility of the `AppController` is to determine and delegate the work to the correct `Processor`.  
+It does so by parsing the token stream and selecting the appropriate processor based on the query type.  
+Each `Processor` sets up a **Chain of Responsibility** for handling a specific category of query (e.g., basic, table, database, etc.).  
+<br>
+
+The Chain of Responsibility begins with one `Handler` that inspects the tokens and decides if it can handle the input.  
+If it cannot, it passes the responsibility to the next handler in the chain.  
+This process continues until either a handler is found that can process the query, or the chain ends.  
+<br>
+
+The correct handler ultimately performs the necessary operations and passes a response string to the `ViewListener` object, which is responsible for rendering the appropriate output.  
 
 
 {% include image-gallery.html images="SQL_Overview.png" height="800" alt="DB Overview" %}
