@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Baby Pacifier Sensor
-description: Embedded a pressure/vacuum sensor into pacifiers to replace the subjective "gloved finger" test, providing clinicians with quantitative data for diagnosing newborn feeding issues during a critical window.
+description: Designed an embedded force/vacuum sensor into a pacifier to replace the subjective “gloved finger” test, providing clinicians with quantitative data for diagnosing newborn feeding issues during a critical window.
 skills: 
   - Sensor Testing and Data Analysis (VNA Testing + Python Scripting) 
   - Flex PCB Design (Altium) 
   - CAD (Fusion360/OnShape)
-  - Transmission Line Design (Ansys HFSS)
+  - Microstrip Transmission Line Design (Ansys HFSS)
   - Sensor Fabrication 
  
 main-image: /overview_9.png
@@ -50,13 +50,15 @@ Best Poster Award in ECE at UC San Diego’s Research Expo 2025
 - **Testing and validation**:
   - Conducted **vacuum pressure performance testing** to benchmark the sensor against industry-standard pacifier sensors  
     → Validated dual functionality for both force and vacuum pressure sensing
-  - Performed **sensor testing and data analysis** across multiple batches to identify fabrication improvements affecting yield, consistency, and sensitivity
+  - Built and tested multiple prototypes using PCBs and 3D-printed fixtures; developed Python scripts to control 
+VNA/Arduino/force actuator, automate S11 data collection while step forces applied, and generate calibration curves 
+for sensitivity/linearity analysis. 
 
 - **Automation and data processing tools**:
   - Developed a **Python script** to:
     - Communicate with a VNA, Arduino, and linear actuator
     - Apply step forces and collect **S11 parameter data**
-    - Generate **phase vs. force** graphs for performance analysis
+    - Generate **phase vs. force** calibration curves for performance analysis
     - Compare sensor performance across individual sensors, within the same batch or across multiple batches
   - Created an algorithm to:
     - Automatically identify the **optimal operating frequency** (maximizing phase change)
