@@ -32,6 +32,8 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
 ## SHA-256 Optimization: 
 
+Full parallelism isn’t possible since each block’s hash depends on the previous one, but the word expansion within each block is independent. Instead of computing all expansions first and then compressing blocks sequentially, which creates a long critical path and lowers clock frequency, the more efficient approach is to overlap computation by performing the next block’s word expansion in parallel with the current block’s compression, improving throughput without breaking the dependency chain.
+
 {% include image-gallery.html images="optimization.png" height="400" alt="optimization" %}
 
 ## SHA-256 Results:
