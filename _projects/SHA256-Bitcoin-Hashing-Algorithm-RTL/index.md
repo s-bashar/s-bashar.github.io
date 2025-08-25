@@ -34,8 +34,6 @@ Our SHA-256 RTL implementation is carefully written to avoid inferred latches an
 
 Full parallelism isn’t possible since each block’s hash depends on the previous one, but the word expansion within each block is independent. Instead of computing all expansions first and then compressing blocks sequentially, which creates a long critical path and lowers clock frequency, the more efficient approach is to overlap computation by performing the next block’s word expansion in parallel with the current block’s compression, improving throughput without breaking the dependency chain.
 
-{% include image-gallery.html images="optimization.png" height="400" alt="optimization" %}
-
 ## SHA-256 Results:
 {% include image-gallery.html images="results.png" height="400" alt="results" %}
    - Device: EP2AGX45DF2915  
@@ -66,7 +64,7 @@ Full parallelism isn’t possible since each block’s hash depends on the previ
 
      - **IDLE**: Initializes state and loads SHA-256 IV constants  
      - **READ**: Reads message blocks from memory into the internal W array and inserts padding  
-     - **COMP1B**: First SHA round. Shared among all nonces—hashes the constant message block  
+     - **COMP1B**: First SHA round for block0. Shared among all nonces—hashes the constant message block  
      - **COMP2B**: Second SHA round for all 16 nonces in parallel—each nonce has its own customized W block with its nonce injected  
      - **HASHFIN**: Final SHA round. Uses the output of COMP2B as input to a second SHA-256 function (double hashing)  
      - **WRITE**: Writes out `H[0]` of the final hash result for each nonce  
@@ -86,14 +84,6 @@ We save the hash value from this point so we can revert back to this hash value 
 {% include image-gallery.html images="btcopt.png" height="400" alt="btc_opt" %}
 
 ---
-This is how we implemented parallel computation for nonce values for phase 2. We used the same logic in phase 3.  
-For phase 1, we used the original optimization of only reading/computing the first message once.  
-We optimized register usage by a considerable amount (really happy about how we use the arrays)—nothing is wasted.  
-That’s how we fit all 16 nonce parallelization into hardware on the board.  
-Also optimized each `for` and `if` statement to avoid resource waste.
-
-{% include image-gallery.html images="btcopt2.png" height="600" alt="btc_opt2" %}
-
 ## Bitcoin Hashing RTL Module Results 
 
 ### Serial Implementation Results:
@@ -123,6 +113,6 @@ Also optimized each `for` and `if` statement to avoid resource waste.
 Parallel version completed 16 hashes in 241 cycles, or ~15.1 cycles per hash, compared to 2224 cycles per hash in serial.  
 That’s about a **147× throughput improvement**, which corresponds to a **9.2× speed improvement**—but comes at the cost of area.
 
-## Project Member:
+## Project Members:
 
-Henry Pritchard | (ECE111, Advanced Digital Design Course Project, @UC San Diego Prof. Farinaz Koushanfar) 
+Shayaun Bashar | Henry Pritchard | (ECE111, Advanced Digital Design Course Project, @UC San Diego Prof. Farinaz Koushanfar) 
